@@ -28,4 +28,15 @@
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toTopOf="parent"/>-->
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/splashAnim"
+        app:lottie_autoPlay="true"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_rawRes="@raw/splash_anim" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
