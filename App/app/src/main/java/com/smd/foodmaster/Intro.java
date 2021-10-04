@@ -20,6 +20,7 @@ public class Intro extends AppCompatActivity {
         splashBg = (ImageView)findViewById(R.id.splshImg);
         splashLogo = (LottieAnimationView)findViewById(R.id.splashAnim);
 
-        splashBg.animate().translationY(-5600).setDuration(3000).setStartDelay(4000);
+        splashBg.animate().translationY(-5600).setDuration(2000).setStartDelay(2500);
+        splashLogo.animate().translationY(600).setDuration(2000).setStartDelay(2500);
     }
 }
