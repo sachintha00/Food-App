@@ -21,6 +21,6 @@ public class Intro extends AppCompatActivity {
         splashLogo = (LottieAnimationView)findViewById(R.id.splashAnim);
 
         splashBg.animate().translationY(-5600).setDuration(2000).setStartDelay(2500);
-        splashLogo.animate().translationY(600).setDuration(2000).setStartDelay(2500);
+        splashLogo.animate().translationY(1500).setDuration(1000).setStartDelay(2700);
     }
 }
