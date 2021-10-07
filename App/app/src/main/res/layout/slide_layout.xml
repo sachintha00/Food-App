@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#1F1E31"
+    >
 
     <ImageView
         android:id="@+id/splashImg1"
@@ -15,9 +17,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Fresh"
-        android:textSize="24sp"
-        android:layout_marginTop="400dp"
+        android:textColor="#FFFFFF"
+        android:textSize="39sp"
+        android:layout_marginTop="370dp"
         android:layout_marginStart="30dp"
+        android:fontFamily="@font/century_gothic"
+        />
+    <TextView
+        android:id="@+id/topic2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fresh"
+        android:textColor="#FE8728"
+        android:textSize="59sp"
+        android:layout_marginTop="420dp"
+        android:layout_marginStart="25dp"
+        android:fontFamily="@font/century_gothic"
         />
 
 </RelativeLayout>
