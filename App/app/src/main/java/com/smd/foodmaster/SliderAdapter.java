@@ -37,9 +37,9 @@ public class SliderAdapter extends PagerAdapter {
             "Payment"
     };
     public String[] splash_description = {
-            "Lorem ipsum dolor sit amet, consetetur \\nsadipscing elitr, sed diam nonumy \\neirmod tempor invidunt ut labore et \\ndolore magna aliquyam erat, sed diam \\nvoluptua. At vero eos et accusam et",
-            "Lorem ipsum dolor sit amet, consetetur \\nsadipscing elitr, sed diam nonumy \\neirmod tempor invidunt ut labore et \\ndolore magna aliquyam erat, sed diam \\nvoluptua. At vero eos et accusam et",
-            "Lorem ipsum dolor sit amet, consetetur \\nsadipscing elitr, sed diam nonumy \\neirmod tempor invidunt ut labore et \\ndolore magna aliquyam erat, sed diam \\nvoluptua. At vero eos et accusam et"
+            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et",
+            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et",
+            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et"
     };
 
     @Override

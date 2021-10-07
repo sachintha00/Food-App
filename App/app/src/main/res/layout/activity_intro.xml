@@ -10,15 +10,16 @@
     <ImageView
         android:id="@+id/splshImg"
         android:layout_width="match_parent"
-        android:layout_height="900dp"
+        android:layout_height="974dp"
+        android:elevation="1dp"
+        android:scaleType="fitXY"
         android:src="@drawable/splash_bg_anim_screen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.517"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/splashAnim"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.488"
-        android:scaleType="fitXY"/>
+        app:layout_constraintVertical_bias="0.488" />
 <!--    <ImageView-->
 <!--        android:id="@+id/splash"-->
 <!--        android:layout_width="100dp"-->
@@ -31,6 +32,7 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/splashAnim"
+        android:elevation="1dp"
         app:lottie_autoPlay="true"
         android:layout_width="400dp"
         android:layout_height="400dp"
