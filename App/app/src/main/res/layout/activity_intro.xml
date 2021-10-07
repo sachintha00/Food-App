@@ -41,18 +41,23 @@
         app:lottie_rawRes="@raw/splash_anim" />
 
     <LinearLayout
+        android:id="@+id/sliderLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="">
+        >
 
         <androidx.viewpager.widget.ViewPager
             android:layout_width="match_parent"
-            android:layout_height="600dp">
+            android:layout_height="640dp"
+            android:id="@+id/sliders"
+            android:background="#4E9194"
+            >
 
         </androidx.viewpager.widget.ViewPager>
 
         <LinearLayout
+            android:id="@+id/slideDotes"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
