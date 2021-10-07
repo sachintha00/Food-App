@@ -27,11 +27,22 @@
         android:id="@+id/topic2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fresh"
+        android:text="Everything"
         android:textColor="#FE8728"
         android:textSize="59sp"
         android:layout_marginTop="420dp"
         android:layout_marginStart="25dp"
+        android:fontFamily="@font/frnak_gothic"
+        />
+    <TextView
+        android:id="@+id/descript"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lorem ipsum dolor sit amet, consetetur \nsadipscing elitr, sed diam nonumy \neirmod tempor invidunt ut labore et \ndolore magna aliquyam erat, sed diam \nvoluptua. At vero eos et accusam et"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:layout_marginTop="500dp"
+        android:layout_marginStart="30dp"
         android:fontFamily="@font/century_gothic"
         />
 
