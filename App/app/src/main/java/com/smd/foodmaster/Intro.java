@@ -53,7 +53,7 @@ public class Intro extends AppCompatActivity {
             dots[i] = new TextView(this);
             dots[i].setText(Html.fromHtml("&#8226;"));
             dots[i].setTextSize(45);
-            dots[i].setTextColor(getResources().getColor(R.color.colorPrimary));
+            dots[i].setTextColor(getResources().getColor(R.color.colorTransparent));
 
             dotLayout.addView(dots[i]);
         }
@@ -66,7 +66,7 @@ public class Intro extends AppCompatActivity {
     ViewPager.OnPageChangeListener viewLister = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            
+
         }
 
         @Override
