@@ -16,7 +16,7 @@ public class Intro extends AppCompatActivity {
 
     ImageView splashBg;
     LottieAnimationView splashLogo;
-    LinearLayout sliders,dotLayout;
+    LinearLayout sliders, dotLayout;
     ViewPager sliderViewPager;
     SliderAdapter sliderAdapter;
 
@@ -27,28 +27,30 @@ public class Intro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
 
-        dotLayout = (LinearLayout)findViewById(R.id.slideDotes);
-        splashBg = (ImageView)findViewById(R.id.splshImg);
-        splashLogo = (LottieAnimationView)findViewById(R.id.splashAnim);
-        sliders = (LinearLayout)findViewById(R.id.sliderLayout);
+        dotLayout = (LinearLayout) findViewById(R.id.slideDotes);
+        splashBg = (ImageView) findViewById(R.id.splshImg);
+        splashLogo = (LottieAnimationView) findViewById(R.id.splashAnim);
+        sliders = (LinearLayout) findViewById(R.id.sliderLayout);
 
         splashBg.animate().translationY(-5600).setDuration(2000).setStartDelay(2500);
         splashLogo.animate().translationY(1500).setDuration(1000).setStartDelay(2700);
         sliders.animate().setStartDelay(2700);
 
-        sliderViewPager = (ViewPager)findViewById(R.id.sliders);
+        sliderViewPager = (ViewPager) findViewById(R.id.sliders);
 
         sliderAdapter = new SliderAdapter(this);
         sliderViewPager.setAdapter(sliderAdapter);
 
-        addDotIndecator();
+        addDotIndecator(0);
+        sliderViewPager.addOnPageChangeListener(viewLister);
     }
 
-    public void addDotIndecator(int position){
+    public void addDotIndecator(int position) {
         dots = new TextView[3];
+        dotLayout.removeAllViews();
 
-        for (int i=0; i<dots.length; i++){
-            dots[i]= new TextView(this);
+        for (int i = 0; i < dots.length; i++) {
+            dots[i] = new TextView(this);
             dots[i].setText(Html.fromHtml("&#8226;"));
             dots[i].setTextSize(45);
             dots[i].setTextColor(getResources().getColor(R.color.colorPrimary));
@@ -56,7 +58,7 @@ public class Intro extends AppCompatActivity {
             dotLayout.addView(dots[i]);
         }
 
-        if(dots.length > 0){
+        if (dots.length > 0) {
             dots[position].setTextColor(getResources().getColor(R.color.colorAccent));
         }
     }
@@ -64,17 +66,17 @@ public class Intro extends AppCompatActivity {
     ViewPager.OnPageChangeListener viewLister = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+            
         }
 
         @Override
-        public void onPageSelected(int position) {
-            addDotIndecator(position);
+        public void onPageSelected(int i) {
+            addDotIndecator(i);
         }
 
         @Override
         public void onPageScrollStateChanged(int state) {
 
         }
-    }
+    };
 }
