@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 
@@ -19,6 +20,7 @@ public class Intro extends AppCompatActivity {
     LinearLayout sliders, dotLayout;
     ViewPager sliderViewPager;
     SliderAdapter sliderAdapter;
+    TextView btnStart;
 
     private TextView[] dots;
 
@@ -31,6 +33,7 @@ public class Intro extends AppCompatActivity {
         splashBg = (ImageView) findViewById(R.id.splshImg);
         splashLogo = (LottieAnimationView) findViewById(R.id.splashAnim);
         sliders = (LinearLayout) findViewById(R.id.sliderLayout);
+        btnStart = (TextView) findViewById(R.id.btnStart);
 
         splashBg.animate().translationY(-5600).setDuration(2000).setStartDelay(2500);
         splashLogo.animate().translationY(1500).setDuration(1000).setStartDelay(2700);
@@ -60,6 +63,15 @@ public class Intro extends AppCompatActivity {
 
         if (dots.length > 0) {
             dots[position].setTextColor(getResources().getColor(R.color.colorPrimary));
+            if(position == 2){
+                Toast.makeText(this, "saxhintha", Toast.LENGTH_SHORT).show();
+                try {
+                    btnStart.setVisibility(View.VISIBLE);
+                }
+                catch (Exception e){
+                    Toast.makeText(this, "error: "+e, Toast.LENGTH_SHORT).show();
+                }
+            }
         }
     }
 
