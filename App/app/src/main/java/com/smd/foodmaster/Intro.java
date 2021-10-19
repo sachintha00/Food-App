@@ -63,15 +63,19 @@ public class Intro extends AppCompatActivity {
 
         if (dots.length > 0) {
             dots[position].setTextColor(getResources().getColor(R.color.colorPrimary));
-            if(position == 2){
-                Toast.makeText(this, "saxhintha", Toast.LENGTH_SHORT).show();
-                try {
-                    btnStart.setVisibility(View.VISIBLE);
-                }
-                catch (Exception e){
-                    Toast.makeText(this, "error: "+e, Toast.LENGTH_SHORT).show();
-                }
+            if(position == dots.length-1){
+                loadLastScreen();
             }
+        }
+    }
+
+    private void loadLastScreen() {
+        Toast.makeText(this, "saxhintha", Toast.LENGTH_SHORT).show();
+        try {
+            btnStart.setVisibility(View.VISIBLE);
+        }
+        catch (Exception e){
+            Toast.makeText(this, "error: "+e, Toast.LENGTH_SHORT).show();
         }
     }
 
