@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Food Master</string>
+    <string name="one_of_us">One Of Us?</string>
+    <string name="new_member_description">It is a long established fact that a reader will be distracted</string>
 </resources>
