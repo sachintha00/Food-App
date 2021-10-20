@@ -37,12 +37,12 @@ public class Intro extends AppCompatActivity {
 
         dotLayout = (LinearLayout) findViewById(R.id.slideDotes);
         splashBg = (ImageView) findViewById(R.id.splshImg);
-//        splashLogo = (LottieAnimationView) findViewById(R.id.splashAnim);
+        splashLogo = (LottieAnimationView) findViewById(R.id.splashAnim);
         sliders = (LinearLayout) findViewById(R.id.sliderLayout);
         btnStart = (TextView) findViewById(R.id.btnStart);
 
         splashBg.animate().translationY(-5600).setDuration(2000).setStartDelay(2500);
-//        splashLogo.animate().translationY(1500).setDuration(1000).setStartDelay(2700);
+        splashLogo.animate().translationY(1500).setDuration(1000).setStartDelay(2700);
         sliders.animate().setStartDelay(2700);
 
         sliderViewPager = (ViewPager) findViewById(R.id.sliders);
