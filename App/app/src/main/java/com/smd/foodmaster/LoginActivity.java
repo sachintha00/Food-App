@@ -16,7 +16,7 @@ public class LoginActivity extends AppCompatActivity {
     Animation logRegBgAnima;
     LinearLayout newMemberLayout;
 
-    Button newMember,login;
+    Button newMember,login, oldMember;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         newMember = (Button)findViewById(R.id.btn_new_member);
-        login = (Button)findViewById(R.id.login);
+        oldMember = (Button)findViewById(R.id.btn_old_member);
         newMemberLayout = (LinearLayout)findViewById(R.id.layout_new_member);
 
         loginRegBg = (ImageView) findViewById(R.id.image_bg_login_reg);
@@ -32,17 +32,15 @@ public class LoginActivity extends AppCompatActivity {
         newMember.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginRegBg.animate().translationY(1570).setDuration(1500).setStartDelay(300);
-//                newMemberLayout.setVisibility(View.INVISIBLE);
                 newMemberLayout.animate().scaleX(0).setDuration(1000);
+                loginRegBg.animate().translationY(1570).setDuration(2200).setStartDelay(300);
             }
         });
-        login.setOnClickListener(new View.OnClickListener() {
+        oldMember.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                newMemberLayout.setVisibility(View.VISIBLE);
-                loginRegBg.animate().translationY(-1570).setDuration(1000).setStartDelay(300);
-                newMemberLayout.animate().scaleX(1).setDuration(1000);
+                newMemberLayout.animate().scaleX(1).setDuration(1000).setStartDelay(700);
+                loginRegBg.animate().translationY(-1570).setDuration(2200).setStartDelay(300);
             }
         });
     }

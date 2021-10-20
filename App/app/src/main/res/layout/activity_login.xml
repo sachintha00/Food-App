@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:id="@+id/layout_new_member"
-        android:elevation="1dp"
+        android:elevation="4dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -58,7 +58,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:gravity="center"
-        android:elevation="6dp"
+        android:elevation="3dp"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -152,9 +152,52 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/layout_old_member"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="40dp"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/gadugi"
+            android:text="@string/one_of_us"
+            android:textColor="#1F1E31"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/gadugi"
+            android:gravity="center"
+            android:text="@string/new_member_description"
+            android:textColor="#1F1E31" />
+
+        <Button
+            android:id="@+id/btn_old_member"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gadugi"
+            android:text="click me"
+            android:textColor="#1F1E31"/>
+
+    </LinearLayout>
+
 
     <ImageView
         android:id="@+id/image_bg_login_reg"
+        android:elevation="3dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
