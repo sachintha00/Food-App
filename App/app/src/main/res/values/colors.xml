@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#FF6200EE</color>
     <color name="colorAccent">#F7F9FA</color>
     <color name="colorTransparent">#414051</color>
+
+    <color name="mtrl_textinput_default_box_stroke_color">#FE8728</color>
+    <color name="mtrl_floatin_default_background_color">#8FA9BA</color>
 </resources>

@@ -68,7 +68,7 @@
             android:id="@+id/loginTopic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="LIVE CHAT"
+            android:text="FOOD MAGIC"
             android:textColor="#FFF"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -86,27 +86,26 @@
             tools:layout_editor_absoluteY="337dp" />
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:id="@+id/inputUsername"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="50dp"
+            android:layout_marginEnd="20dp"
             android:hint="Username"
-            app:hintTextColor="#8FA9BA"
-            app:boxCornerRadiusTopStart="10dp"
-            app:boxCornerRadiusBottomEnd="10dp"
-            app:boxCornerRadiusTopEnd="10dp"
-            app:boxCornerRadiusBottomStart="10dp"
-            app:boxStrokeColor="#0D9188"
-            >
+            android:textColorHint="#FE8728"
+            app:boxCornerRadiusTopStart="25dp"
+            app:boxCornerRadiusBottomEnd="25dp"
+            app:boxCornerRadiusTopEnd="25dp"
+            app:boxCornerRadiusBottomStart="25dp"
+            app:boxStrokeColor="#FE8728"
+            app:hintTextColor="#8FA9BA">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#8FA9BA"
-                />
+                android:textColor="#8FA9BA" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -115,17 +114,19 @@
             android:id="@+id/inputPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginTop="20dp"
             android:hint="Password"
             app:hintTextColor="#8FA9BA"
-            app:boxCornerRadiusTopStart="10dp"
-            app:boxCornerRadiusBottomEnd="10dp"
-            app:boxCornerRadiusTopEnd="10dp"
-            app:boxCornerRadiusBottomStart="10dp"
-            app:boxStrokeColor="#0D9188"
+            app:boxCornerRadiusTopStart="25dp"
+            app:boxCornerRadiusBottomEnd="25dp"
+            app:boxCornerRadiusTopEnd="25dp"
+            app:boxCornerRadiusBottomStart="25dp"
+            app:boxStrokeColor="#FE8728"
+            android:textColorHint="#FE8728"
             app:endIconMode="password_toggle"
+            app:endIconTint="@color/colorPrimary"
             >
 
             <com.google.android.material.textfield.TextInputEditText

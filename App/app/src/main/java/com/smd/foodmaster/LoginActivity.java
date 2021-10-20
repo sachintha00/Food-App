@@ -3,12 +3,17 @@ package com.smd.foodmaster;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 
 public class LoginActivity extends AppCompatActivity {
+
+    ImageView loginRegBg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        loginRegBg = (ImageView) findViewById(R.id.image_bg_login_reg);
     }
 }
