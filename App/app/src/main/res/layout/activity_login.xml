@@ -10,49 +10,146 @@
 
     <LinearLayout
         android:id="@+id/layout_new_member"
+        android:elevation="1dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:elevation="1dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        android:layout_marginTop="40dp"
-        >
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/gadugi"
             android:text="@string/one_of_us"
             android:textColor="#1F1E31"
             android:textSize="23sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/gadugi"
-            android:layout_marginBottom="10dp"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/gadugi"
             android:gravity="center"
             android:text="@string/new_member_description"
-            android:textColor="#1F1E31"
-            android:fontFamily="@font/gadugi"
-            android:layout_marginBottom="5dp"
-            />
+            android:textColor="#1F1E31" />
+
         <Button
             android:id="@+id/btn_new_member"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="click me"
-            android:textColor="#1F1E31"
             android:fontFamily="@font/gadugi"
-            />
+            android:text="click me"
+            android:textColor="#1F1E31" />
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/textLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:elevation="6dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/loginTopic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LIVE CHAT"
+            android:textColor="#FFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="96dp"
+            tools:layout_editor_absoluteY="337dp" />
+        <TextView
+            android:id="@+id/loginDescript"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Being programmer is easy. It's like flying,\n like a bird. But you don't have wings"
+            android:textColor="#8FA9BA"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="96dp"
+            tools:layout_editor_absoluteY="337dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/inputUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="50dp"
+            android:hint="Username"
+            app:hintTextColor="#8FA9BA"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxStrokeColor="#0D9188"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#8FA9BA"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/inputPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="20dp"
+            android:hint="Password"
+            app:hintTextColor="#8FA9BA"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxStrokeColor="#0D9188"
+            app:endIconMode="password_toggle"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#8FA9BA"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:text="LOGIN"
+            android:textColor="#FFFF"
+            tools:layout_editor_absoluteX="96dp"
+            tools:layout_editor_absoluteY="337dp"/>
+
+
+    </LinearLayout>
 
 
     <ImageView
