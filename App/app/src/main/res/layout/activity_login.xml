@@ -159,7 +159,7 @@
         android:layout_height="match_parent"
         android:scaleType="fitXY"
         android:src="@drawable/login_reg_bg"
-        android:translationY="-570dp"
+        android:translationY="-595dp"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
