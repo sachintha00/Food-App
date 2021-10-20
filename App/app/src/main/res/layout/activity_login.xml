@@ -9,7 +9,7 @@
     >
 
     <LinearLayout
-        android:id="@+id/layoutNewMember"
+        android:id="@+id/layout_new_member"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:elevation="1dp"
@@ -30,6 +30,7 @@
             android:textSize="23sp"
             android:textStyle="bold"
             android:fontFamily="@font/gadugi"
+            android:layout_marginBottom="10dp"
             />
 
         <TextView
@@ -39,16 +40,26 @@
             android:text="@string/new_member_description"
             android:textColor="#1F1E31"
             android:fontFamily="@font/gadugi"
+            android:layout_marginBottom="5dp"
+            />
+        <Button
+            android:id="@+id/btn_new_member"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="click me"
+            android:textColor="#1F1E31"
+            android:fontFamily="@font/gadugi"
             />
 
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/image_bg_login_reg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
         android:src="@drawable/login_reg_bg"
-        tools:ignore="MissingConstraints"
-        android:translationY="-550dp" />
+        android:translationY="-570dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
