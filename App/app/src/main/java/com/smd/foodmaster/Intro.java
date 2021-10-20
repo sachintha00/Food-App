@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.AttributeSet;
@@ -40,6 +41,14 @@ public class Intro extends AppCompatActivity {
         splashLogo = (LottieAnimationView) findViewById(R.id.splashAnim);
         sliders = (LinearLayout) findViewById(R.id.sliderLayout);
         btnStart = (TextView) findViewById(R.id.btnStart);
+
+        btnStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent loginActivity = new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(loginActivity);
+            }
+        });
 
         splashBg.animate().translationY(-5600).setDuration(2000).setStartDelay(2500);
         splashLogo.animate().translationY(1500).setDuration(1000).setStartDelay(2700);
