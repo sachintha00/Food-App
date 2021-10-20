@@ -1,11 +1,17 @@
 package com.smd.foodmaster;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -31,12 +37,12 @@ public class Intro extends AppCompatActivity {
 
         dotLayout = (LinearLayout) findViewById(R.id.slideDotes);
         splashBg = (ImageView) findViewById(R.id.splshImg);
-        splashLogo = (LottieAnimationView) findViewById(R.id.splashAnim);
+//        splashLogo = (LottieAnimationView) findViewById(R.id.splashAnim);
         sliders = (LinearLayout) findViewById(R.id.sliderLayout);
         btnStart = (TextView) findViewById(R.id.btnStart);
 
         splashBg.animate().translationY(-5600).setDuration(2000).setStartDelay(2500);
-        splashLogo.animate().translationY(1500).setDuration(1000).setStartDelay(2700);
+//        splashLogo.animate().translationY(1500).setDuration(1000).setStartDelay(2700);
         sliders.animate().setStartDelay(2700);
 
         sliderViewPager = (ViewPager) findViewById(R.id.sliders);
@@ -63,20 +69,28 @@ public class Intro extends AppCompatActivity {
 
         if (dots.length > 0) {
             dots[position].setTextColor(getResources().getColor(R.color.colorPrimary));
-            if(position == dots.length-1){
-                loadLastScreen();
-            }
         }
+        loadLastScreen(position == dots.length - 1);
     }
 
-    private void loadLastScreen() {
-        Toast.makeText(this, "saxhintha", Toast.LENGTH_SHORT).show();
-        try {
-            btnStart.setVisibility(View.VISIBLE);
+    private void loadLastScreen(boolean state) {
+        if(state){
+            try {
+                btnStart.setVisibility(View.VISIBLE);
+            }
+            catch (Exception e){
+                Toast.makeText(this, "error: "+e, Toast.LENGTH_SHORT).show();
+            }
         }
-        catch (Exception e){
-            Toast.makeText(this, "error: "+e, Toast.LENGTH_SHORT).show();
+        else{
+            try {
+                btnStart.setVisibility(View.INVISIBLE);
+            }
+            catch (Exception e){
+                Toast.makeText(this, "error: "+e, Toast.LENGTH_SHORT).show();
+            }
         }
+
     }
 
     ViewPager.OnPageChangeListener viewLister = new ViewPager.OnPageChangeListener() {

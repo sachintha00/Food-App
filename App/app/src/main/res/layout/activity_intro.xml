@@ -17,7 +17,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.517"
-        app:layout_constraintStart_toStartOf="@+id/splashAnim"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.488" />
 <!--    <ImageView-->
@@ -30,18 +29,29 @@
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toTopOf="parent"/>-->
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/splashAnim"
-        android:elevation="1dp"
-        app:lottie_autoPlay="true"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:lottie_rawRes="@raw/splash_anim"/>
-
+<!--    <com.airbnb.lottie.LottieAnimationView-->
+<!--        android:id="@+id/splashAnim"-->
+<!--        android:elevation="1dp"-->
+<!--        app:lottie_autoPlay="true"-->
+<!--        android:layout_width="400dp"-->
+<!--        android:layout_height="400dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:lottie_rawRes="@raw/splash_anim"/>-->
+    <TextView
+        android:id="@+id/btnStart"
+        android:elevation="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:gravity="right"
+        android:layout_marginEnd="20dp"
+        android:textColor="#FFFF"
+        android:visibility="invisible"
+        android:textSize="30sp"
+        tools:ignore="MissingConstraints" />
     <LinearLayout
         android:id="@+id/sliderLayout"
         android:layout_width="match_parent"
@@ -54,6 +64,17 @@
             android:layout_height="640dp"
             android:id="@+id/sliders"
             >
+<!--            <TextView-->
+<!--                android:id="@+id/btnStart"-->
+<!--                android:elevation="5dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Start"-->
+<!--                android:gravity="right"-->
+<!--                android:layout_marginEnd="20dp"-->
+<!--                android:textColor="#FFFF"-->
+<!--                android:visibility="visible"-->
+<!--                android:textSize="30sp" />-->
 
         </androidx.viewpager.widget.ViewPager>
 
