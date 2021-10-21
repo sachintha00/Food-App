@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
                 newMemberLayout.animate().alpha(0).setDuration(1000).setStartDelay(1000);
                 oldMemberLayout.animate().alpha(1).setDuration(1000).setStartDelay(1000);
                 loginRegBg.animate().translationY(1570).setDuration(2200).setStartDelay(200);
-                loginComponent.animate().translationY(-300).alpha(0).setDuration(800).setStartDelay(1000);
+                loginComponent.animate().translationY(-300).alpha(0).setDuration(800).setStartDelay(800);
             }
         });
         oldMember.setOnClickListener(new View.OnClickListener() {
