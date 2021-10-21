@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         newMember.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                newMemberLayout.animate().alpha(0).setDuration(1000).setStartDelay(200);
+                newMemberLayout.animate().alpha(0).setDuration(1000).setStartDelay(1000);
                 loginRegBg.animate().translationY(1570).setDuration(2200).setStartDelay(200);
                 oldMemberLayout.setVisibility(View.VISIBLE);
             }
@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         oldMember.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                newMemberLayout.animate().alpha(1).setDuration(1000).setStartDelay(200);
+                newMemberLayout.animate().alpha(1).setDuration(1000).setStartDelay(1000);
                 loginRegBg.animate().translationY(-1570).setDuration(2200).setStartDelay(200);
                 oldMemberLayout.setVisibility(View.INVISIBLE);
             }
