@@ -47,6 +47,8 @@
             android:fontFamily="@font/gadugi"
             android:text="click me"
             android:textColor="#1F1E31"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:background="@drawable/signup_signin_btn"
             />
 
@@ -194,6 +196,8 @@
             android:fontFamily="@font/gadugi"
             android:text="click me"
             android:textColor="#1F1E31"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:background="@drawable/signup_signin_btn"
             />
 
