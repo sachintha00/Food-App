@@ -44,9 +44,11 @@
             android:id="@+id/btn_new_member"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
             android:fontFamily="@font/gadugi"
             android:text="click me"
-            android:textColor="#1F1E31" />
+            android:textColor="#1F1E31"
+            />
 
     </LinearLayout>
 
