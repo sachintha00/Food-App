@@ -66,7 +66,18 @@ public class AdminDrawerAdapter extends RecyclerView.Adapter<AdminDrawerAdapter.
 
         for(int i=0; i<items.size(); i++){
             AdminDrawerItem item = items.get(i);
-            
+            if(item.isChecked()){
+                item.setChecked(false);
+                notifyItemChanged(i);
+                break;
+            }
+        }
+
+        newChecked.setChecked(true);
+        notifyItemChanged(position);
+
+        if(listner != null){
+            listner.onItemSelected(position);
         }
     }
 
