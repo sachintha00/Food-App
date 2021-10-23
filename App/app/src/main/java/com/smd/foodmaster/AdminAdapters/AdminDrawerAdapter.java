@@ -6,7 +6,13 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+import java.util.Map;
+
 public class AdminDrawerAdapter extends RecyclerView.Adapter<AdminDrawerAdapter.ViewHolder> {
+
+    private List<AdminDrawerItem> items;
+    private Map<Class<? extends AdminDrawerItem>,Integer>  viewType;
 
     @NonNull
     @Override
