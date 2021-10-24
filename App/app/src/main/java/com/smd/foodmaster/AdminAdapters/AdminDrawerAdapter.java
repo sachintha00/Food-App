@@ -3,6 +3,7 @@ package com.smd.foodmaster.AdminAdapters;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +17,8 @@ public class AdminDrawerAdapter extends RecyclerView.Adapter<AdminDrawerAdapter.
     private List<AdminDrawerItem<ViewHolder>> items;
     private Map<Class<? extends AdminDrawerItem>,Integer>  viewType;
     private SparseArray<AdminDrawerItem<ViewHolder>> holderFactories;
+
+    private OnItemSelectedListener listner;
 
     public AdminDrawerAdapter(List<AdminDrawerItem<ViewHolder>> items){
         this.items = items;
@@ -81,6 +84,14 @@ public class AdminDrawerAdapter extends RecyclerView.Adapter<AdminDrawerAdapter.
         }
     }
 
+    public void setListner(OnItemSelectedListener listner){
+        this.listner = listner;
+    }
+
+    public interface OnItemSelectedListener{
+        void onItemSelected(int position);
+    }
+
     static abstract class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private AdminDrawerAdapter adminDrawerAdapter;
@@ -92,7 +103,7 @@ public class AdminDrawerAdapter extends RecyclerView.Adapter<AdminDrawerAdapter.
 
         @Override
         public void onClick(View v) {
-
+            adminDrawerAdapter.setSelected(getAdapterPosition());
         }
     }
 }
