@@ -45,6 +45,26 @@ public class Item extends AdminDrawerItem<Item.ViewHolder> {
         holder.icon.setColorFilter(isChecked ? selectedItemIconTint: normalItemIconTint);
     }
 
+    public Item withSelectedTextTint(int selectedItemTextTint){
+        this.selectedItemTextTint = selectedItemTextTint;
+        return this;
+    }
+
+    public Item withSelectedIconTint(int selectedItemIconTint){
+        this.selectedItemIconTint = selectedItemIconTint;
+        return this;
+    }
+
+    public Item withNoramalTextTint(int normalItemTextTint){
+        this.normalItemTextTint = normalItemTextTint;
+        return this;
+    }
+
+    public Item withNormalIconTint(int normalItemIconTint){
+        this.normalItemIconTint = normalItemIconTint;
+        return this;
+    }
+
     static class ViewHolder extends AdminDrawerAdapter.ViewHolder{
 
         private ImageView icon;
