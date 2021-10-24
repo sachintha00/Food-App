@@ -38,7 +38,11 @@ public class Item extends AdminDrawerItem<Item.ViewHolder> {
 
     @Override
     public void bindViewHolder(ViewHolder holder) {
+        holder.title.setText(title);
+        holder.icon.setImageDrawable(icon);
 
+        holder.title.setText(isChecked ? selectedItemTextTint: normalItemTextTint);
+        holder.icon.setColorFilter(isChecked ? selectedItemIconTint: normalItemIconTint);
     }
 
     static class ViewHolder extends AdminDrawerAdapter.ViewHolder{
