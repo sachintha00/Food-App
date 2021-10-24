@@ -92,7 +92,7 @@ public class AdminDrawerAdapter extends RecyclerView.Adapter<AdminDrawerAdapter.
         void onItemSelected(int position);
     }
 
-    static abstract class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public static abstract class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private AdminDrawerAdapter adminDrawerAdapter;
 
