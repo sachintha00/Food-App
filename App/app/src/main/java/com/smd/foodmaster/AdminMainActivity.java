@@ -7,6 +7,7 @@ import android.os.Bundle;
 public class AdminMainActivity extends AppCompatActivity {
 
     public static final int POS_CLOSE = 0;
+    public static final int POS_DASHBOARD = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
