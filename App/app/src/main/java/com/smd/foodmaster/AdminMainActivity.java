@@ -5,6 +5,9 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 
+import com.yarolegovich.slidingrootnav.SlidingRootNav;
+import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
+
 public class AdminMainActivity extends AppCompatActivity {
 
     public static final int POS_CLOSE = 0;
@@ -18,6 +21,8 @@ public class AdminMainActivity extends AppCompatActivity {
     private String[] screenTitles;
     private String[] screenIcons;
 
+    private SlidingRootNav slidingRootNav;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,5 +31,15 @@ public class AdminMainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
+
+        slidingRootNav = new SlidingRootNavBuilder(this)
+                .withDragDistance(180)
+                .withRootViewScale(0.75f)
+                .withRootViewElevation(25)
+                .withToolbarMenuToggle(toolbar)
+                .withMenuOpened(false)
+                .withContentClickableWhenMenuOpened(false)
+                .withSavedState(savedInstanceState)
+                .inject();
     }
 }
