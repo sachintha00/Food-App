@@ -14,6 +14,10 @@ public class AdminMainActivity extends AppCompatActivity {
     public static final int POS_ABOUT_US = 0;
     public static final int POS_LOGOUT = 0;
 
+    private String[] screenTitles;
+    private String[] screenIcons;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
