@@ -5,6 +5,7 @@ import androidx.annotation.ColorRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -66,6 +67,11 @@ public class AdminMainActivity extends AppCompatActivity {
                 new SpaceItem(260),
                 createItemFor(POS_LOGOUT)
         ));
+
+        adminDrawerAdapter.setListner(this);
+
+        RecyclerView list = findViewById(R.id.drawer_list);
+        
     }
 
     private AdminDrawerItem createItemFor(int position){
