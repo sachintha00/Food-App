@@ -59,6 +59,9 @@ public class AdminMainActivity extends AppCompatActivity {
                 createItemFor(POS_CLOSE),
                 createItemFor(POS_DASHBOARD).setChecked(true),
                 createItemFor(POS_MY_PROFILE),
+                createItemFor(POS_NEARBY_RES),
+                createItemFor(POS_SETTINGS),
+                createItemFor(POS_ABOUT_US),
         ));
     }
 
