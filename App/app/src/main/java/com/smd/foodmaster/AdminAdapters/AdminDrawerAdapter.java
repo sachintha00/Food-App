@@ -14,13 +14,13 @@ import java.util.Map;
 
 public class AdminDrawerAdapter extends RecyclerView.Adapter<AdminDrawerAdapter.ViewHolder> {
 
-    private List<AdminDrawerItem<ViewHolder>> items;
+    private List<AdminDrawerItem> items;
     private Map<Class<? extends AdminDrawerItem>,Integer>  viewType;
     private SparseArray<AdminDrawerItem<ViewHolder>> holderFactories;
 
     private OnItemSelectedListener listner;
 
-    public AdminDrawerAdapter(List<AdminDrawerItem<ViewHolder>> items){
+    public AdminDrawerAdapter(List<AdminDrawerItem> items){
         this.items = items;
         this.viewType = new HashMap<>();
         this.holderFactories = new SparseArray<>();

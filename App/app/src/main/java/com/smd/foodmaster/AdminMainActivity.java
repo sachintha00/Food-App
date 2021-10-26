@@ -63,7 +63,8 @@ public class AdminMainActivity extends AppCompatActivity {
                 createItemFor(POS_NEARBY_RES),
                 createItemFor(POS_SETTINGS),
                 createItemFor(POS_ABOUT_US),
-                new SpaceItem(260)
+                new SpaceItem(260),
+                createItemFor(POS_LOGOUT)
         ));
     }
 
