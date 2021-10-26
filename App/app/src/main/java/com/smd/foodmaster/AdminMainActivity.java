@@ -55,6 +55,9 @@ public class AdminMainActivity extends AppCompatActivity {
     private AdminDrawerItem createItemFor(int position){
         return new Item(screenIcons[position],screenTitles[position])
                 .withNormalIconTint(R.color.colorPrimary)
+                .withNoramalTextTint(R.color.colorPrimaryDark)
+                .withSelectedIconTint(R.color.colorPrimary)
+                .withSelectedTextTint(R.color.colorPrimary);
     }
 
     @ColorInt
