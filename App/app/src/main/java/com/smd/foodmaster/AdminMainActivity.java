@@ -9,10 +9,14 @@ import androidx.core.content.ContextCompat;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import com.smd.foodmaster.AdminAdapters.AdminDrawerAdapter;
 import com.smd.foodmaster.AdminAdapters.AdminDrawerItem;
 import com.smd.foodmaster.AdminClasses.Item;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class AdminMainActivity extends AppCompatActivity {
 
@@ -50,6 +54,11 @@ public class AdminMainActivity extends AppCompatActivity {
 
         screenIcons = loadScreenIcons();
         screenTitles = loadScreenTitle();
+
+        AdminDrawerAdapter adminDrawerAdapter = new AdminDrawerAdapter(Arrays.asList(
+                createItemFor(POS_CLOSE),
+                
+        ));
     }
 
     private AdminDrawerItem createItemFor(int position){
