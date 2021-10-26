@@ -71,7 +71,7 @@ public class AdminMainActivity extends AppCompatActivity {
         adminDrawerAdapter.setListner(this);
 
         RecyclerView list = findViewById(R.id.drawer_list);
-        
+
     }
 
     private AdminDrawerItem createItemFor(int position){
