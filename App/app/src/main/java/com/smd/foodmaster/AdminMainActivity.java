@@ -12,6 +12,7 @@ import android.os.Bundle;
 import com.smd.foodmaster.AdminAdapters.AdminDrawerAdapter;
 import com.smd.foodmaster.AdminAdapters.AdminDrawerItem;
 import com.smd.foodmaster.AdminClasses.Item;
+import com.smd.foodmaster.AdminClasses.SpaceItem;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 
@@ -62,6 +63,7 @@ public class AdminMainActivity extends AppCompatActivity {
                 createItemFor(POS_NEARBY_RES),
                 createItemFor(POS_SETTINGS),
                 createItemFor(POS_ABOUT_US),
+                new SpaceItem(260)
         ));
     }
 
