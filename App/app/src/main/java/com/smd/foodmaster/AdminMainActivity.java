@@ -41,5 +41,11 @@ public class AdminMainActivity extends AppCompatActivity {
                 .withContentClickableWhenMenuOpened(false)
                 .withSavedState(savedInstanceState)
                 .inject();
+
+        screenIcons = loadScreenIcons();
+        screenTitles = loadScreenTitle();
+    }
+
+    private String[] loadScreenTitle() {
     }
 }
