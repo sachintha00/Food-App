@@ -1,7 +1,10 @@
 package com.smd.foodmaster;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -52,6 +55,11 @@ public class AdminMainActivity extends AppCompatActivity {
     private AdminDrawerItem createItemFor(int position){
         return new Item(screenIcons[position],screenTitles[position])
                 .withNormalIconTint(R.color.colorPrimary)
+    }
+
+    @ColorInt
+    private int color(@ColorRes int res{
+        return ContextCompat.getColor(this,res);
     }
 
     private Drawable[] loadScreenIcons() {
