@@ -57,7 +57,8 @@ public class AdminMainActivity extends AppCompatActivity {
 
         AdminDrawerAdapter adminDrawerAdapter = new AdminDrawerAdapter(Arrays.asList(
                 createItemFor(POS_CLOSE),
-                
+                createItemFor(POS_DASHBOARD).setChecked(true),
+                createItemFor(POS_MY_PROFILE),
         ));
     }
 
