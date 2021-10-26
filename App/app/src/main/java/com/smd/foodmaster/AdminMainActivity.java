@@ -3,8 +3,11 @@ package com.smd.foodmaster;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import com.smd.foodmaster.AdminAdapters.AdminDrawerItem;
+import com.smd.foodmaster.AdminClasses.Item;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 
@@ -19,7 +22,7 @@ public class AdminMainActivity extends AppCompatActivity {
     public static final int POS_LOGOUT = 0;
 
     private String[] screenTitles;
-    private String[] screenIcons;
+    private Drawable[] screenIcons;
 
     private SlidingRootNav slidingRootNav;
 
@@ -44,6 +47,14 @@ public class AdminMainActivity extends AppCompatActivity {
 
         screenIcons = loadScreenIcons();
         screenTitles = loadScreenTitle();
+    }
+
+    private AdminDrawerItem createItemFor(int position){
+        return new Item(screenIcons[position],screenTitles[position])
+                .withNormalIconTint(R.color.colorPrimary)
+    }
+
+    private Drawable[] loadScreenIcons() {
     }
 
     private String[] loadScreenTitle() {
