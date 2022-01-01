@@ -5,4 +5,8 @@
         <item>Dashboard</item>
         <item>Profile</item>
     </string-array>
+
+    <array name="id_activityScreenIcon">
+<!--        <item>@drawable/</item>-->
+    </array>
 </resources>

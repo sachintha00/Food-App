@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
@@ -89,6 +90,16 @@ public class AdminMainActivity extends AppCompatActivity implements AdminDrawerA
         }
 
     private Drawable[] loadScreenIcons() {
+        TypedArray ta = getResources().obtainTypedArray(R.array.id_activityScreenIcon);
+        Drawable[] icons = new Drawable[ta.length()];
+        for (int i=0; i<ta.length(); i++){
+            int id = ta.getResourceId(i,0);
+            if(id!=0){
+                icons[i]=ContextCompat.getDrawable(this,id);
+            }
+        }
+        ta.recycle();
+        return icons;
     }
 
     private String[] loadScreenTitle() {
