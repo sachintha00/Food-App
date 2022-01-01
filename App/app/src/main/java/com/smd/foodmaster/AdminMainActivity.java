@@ -5,6 +5,7 @@ import androidx.annotation.ColorRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.drawable.Drawable;
@@ -20,7 +21,7 @@ import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class AdminMainActivity extends AppCompatActivity {
+public class AdminMainActivity extends AppCompatActivity implements AdminDrawerAdapter.OnItemSelectedListener{
 
     public static final int POS_CLOSE = 0;
     public static final int POS_DASHBOARD = 0;
@@ -91,5 +92,10 @@ public class AdminMainActivity extends AppCompatActivity {
     }
 
     private String[] loadScreenTitle() {
+    }
+
+    @Override
+    public void onItemSelected(int position) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
     }
 }
