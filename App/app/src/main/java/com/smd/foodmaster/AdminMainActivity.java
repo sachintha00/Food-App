@@ -84,18 +84,24 @@ public class AdminMainActivity extends AppCompatActivity implements AdminDrawerA
     }
 
     @ColorInt
-    private int color(@ColorRes int res{
+    private int color(@ColorRes int res){
         return ContextCompat.getColor(this,res);
-    }
+        }
 
     private Drawable[] loadScreenIcons() {
     }
 
     private String[] loadScreenTitle() {
+        return getResources().getStringArray(R.array.id_activityScreenTitles);
     }
 
     @Override
     public void onItemSelected(int position) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        if(position == POS_DASHBOARD){
+            AdminDashBoardFragment dashBoardFragment = new AdminDashBoardFragment();
+            transaction.replace(R.id.container,dashBoardFragment);
+        }
     }
 }
