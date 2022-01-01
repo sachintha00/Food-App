@@ -54,6 +54,7 @@ public class AdminMainActivity extends AppCompatActivity implements AdminDrawerA
                 .withMenuOpened(false)
                 .withContentClickableWhenMenuOpened(false)
                 .withSavedState(savedInstanceState)
+                .withMenuLayout(R.layout.admin_menu)
                 .inject();
 
         screenIcons = loadScreenIcons();
@@ -102,6 +103,11 @@ public class AdminMainActivity extends AppCompatActivity implements AdminDrawerA
         return icons;
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
     private String[] loadScreenTitle() {
         return getResources().getStringArray(R.array.id_activityScreenTitles);
     }
@@ -114,5 +120,9 @@ public class AdminMainActivity extends AppCompatActivity implements AdminDrawerA
             AdminDashBoardFragment dashBoardFragment = new AdminDashBoardFragment();
             transaction.replace(R.id.container,dashBoardFragment);
         }
+
+        slidingRootNav.closeMenu();
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }
