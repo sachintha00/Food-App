@@ -23,27 +23,27 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-//        newMember = (Button)findViewById(R.id.btn_new_member);
-//        oldMember = (Button)findViewById(R.id.btn_old_member);
-//        newMemberLayout = (LinearLayout)findViewById(R.id.layout_new_member);
-//        oldMemberLayout = (LinearLayout)findViewById(R.id.layout_old_member);
-//        loginComponent = (LinearLayout)findViewById(R.id.login_component);
-//        registerComponent = (LinearLayout)findViewById(R.id.register_component);
-//
-//        loginRegBg = (ImageView) findViewById(R.id.image_bg_login_reg);
-//
-//        newMember.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                newMember();
-//            }
-//        });
-//        oldMember.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                oldMember();
-//            }
-//        });
+        newMember = (Button)findViewById(R.id.btn_new_member);
+        oldMember = (Button)findViewById(R.id.btn_old_member);
+        newMemberLayout = (LinearLayout)findViewById(R.id.layout_new_member);
+        oldMemberLayout = (LinearLayout)findViewById(R.id.layout_old_member);
+        loginComponent = (LinearLayout)findViewById(R.id.login_component);
+        registerComponent = (LinearLayout)findViewById(R.id.register_component);
+
+        loginRegBg = (ImageView) findViewById(R.id.image_bg_login_reg);
+
+        newMember.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                newMember();
+            }
+        });
+        oldMember.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                oldMember();
+            }
+        });
 //        login.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
