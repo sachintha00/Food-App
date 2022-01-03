@@ -24,4 +24,18 @@ public class DBhandler extends SQLiteOpenHelper {
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         onUpgrade(db, oldVersion, newVersion);
     }
+
+    private static final String SQL_CREATE_ENTRIES =
+            "CREATE TABLE " + FoodMasterDB.Users.TABLE_NAME + " (" +
+                    FoodMasterDB.Users._ID + " INTEGER PRIMARY KEY," +
+                    FoodMasterDB.Users.COLUMN_FIRST_NAME + " TEXT," +
+                    FoodMasterDB.Users.COLUMN_LAST_NAME + " TEXT," +
+                    FoodMasterDB.Users.COLUMN_USER_ADDRESS + " TEXT," +
+                    FoodMasterDB.Users.COLUMN_USER_GMAIL + " TEXT," +
+                    FoodMasterDB.Users.COLUMN_USER_MOBILE + " TEXT," +
+                    FoodMasterDB.Users.COLUMN_GENDER + " TEXT," +
+                    FoodMasterDB.Users.COLUMN_NIC + " TEXT)";
+
+    private static final String SQL_DELETE_ENTRIES =
+            "DROP TABLE IF EXISTS " + FoodMasterDB.Users.TABLE_NAME;
 }
