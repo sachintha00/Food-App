@@ -1,5 +1,6 @@
 package com.smd.foodmaster.Database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -38,4 +39,23 @@ public class DBhandler extends SQLiteOpenHelper {
 
     private static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + FoodMasterDB.Users.TABLE_NAME;
+
+    public void addUserDetails(String firstName, String lastName, String address,
+                               String gmail, String mobile, String gender, String nic){
+        // Gets the data repository in write mode
+        SQLiteDatabase db = getWritableDatabase();
+
+        // Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(FoodMasterDB.Users.COLUMN_FIRST_NAME, firstName);
+        values.put(FoodMasterDB.Users.COLUMN_LAST_NAME, lastName);
+        values.put(FoodMasterDB.Users.COLUMN_USER_ADDRESS, address);
+        values.put(FoodMasterDB.Users.COLUMN_USER_GMAIL, gmail);
+        values.put(FoodMasterDB.Users.COLUMN_USER_MOBILE, mobile);
+        values.put(FoodMasterDB.Users.COLUMN_GENDER, gender);
+        values.put(FoodMasterDB.Users.COLUMN_NIC, nic);
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId = db.insert(FoodMasterDB.Users.TABLE_NAME, null, values);
+    }
 }
