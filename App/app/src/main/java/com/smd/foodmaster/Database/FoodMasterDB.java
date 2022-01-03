@@ -15,5 +15,7 @@ public final class FoodMasterDB {
         public static final String COLUMN_USER_ADDRESS = "Address";
         public static final String COLUMN_USER_GMAIL = "Gmail";
         public static final String COLUMN_USER_MOBILE = "MobileNumber";
+        public static final String COLUMN_GENDER = "Gender";
+        public static final String COLUMN_NIC = "NIC";
     }
 }
