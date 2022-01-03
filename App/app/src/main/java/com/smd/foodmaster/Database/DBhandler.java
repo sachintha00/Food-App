@@ -40,7 +40,7 @@ public class DBhandler extends SQLiteOpenHelper {
     private static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + FoodMasterDB.Users.TABLE_NAME;
 
-    public void addUserDetails(String firstName, String lastName, String address,
+    public long addUserDetails(String firstName, String lastName, String address,
                                String gmail, String mobile, String gender, String nic){
         // Gets the data repository in write mode
         SQLiteDatabase db = getWritableDatabase();
@@ -57,5 +57,7 @@ public class DBhandler extends SQLiteOpenHelper {
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId = db.insert(FoodMasterDB.Users.TABLE_NAME, null, values);
+
+        return newRowId;
     }
 }
