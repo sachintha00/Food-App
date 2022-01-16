@@ -52,17 +52,19 @@ public class LoginActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(),"sachinthaa",Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getApplicationContext(),"nextClick",Toast.LENGTH_LONG);
                 toast.show();
             }
         });
-//        login.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 //                Intent adminMain = new Intent(getApplicationContext(), AdminMainActivity.class);
 //                startActivity(adminMain);
-//            }
-//        });
+                Toast toast = Toast.makeText(getApplicationContext(),"click login",Toast.LENGTH_LONG);
+                toast.show();
+            }
+        });
     }
 
     private void oldMember() {

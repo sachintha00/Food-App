@@ -169,7 +169,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:gravity="center"
-        android:elevation="2dp"
+        android:elevation="5dp"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -299,7 +299,6 @@
                         android:textColor="#FFFF"
                         tools:layout_editor_absoluteX="96dp"
                         tools:layout_editor_absoluteY="337dp"
-                        android:elevation="10dp"
                         />
                 </LinearLayout>
 <!--                <LinearLayout-->
