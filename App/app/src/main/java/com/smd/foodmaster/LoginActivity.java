@@ -20,7 +20,7 @@ public class LoginActivity extends AppCompatActivity {
 
     ImageView loginRegBg;
     Animation logRegBgAnima;
-    LinearLayout newMemberLayout, loginComponent,oldMemberLayout,registerComponent,firstRegSection;
+    LinearLayout newMemberLayout, loginComponent,oldMemberLayout,registerComponent,firstRegSection,secondRegSection;
 
     Button newMember,login, oldMember, btnNext;
 
@@ -41,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         loginComponent = (LinearLayout)findViewById(R.id.login_component);
         registerComponent = (LinearLayout)findViewById(R.id.register_component);
         firstRegSection = (LinearLayout)findViewById(R.id.first_reg_section);
+        secondRegSection = (LinearLayout)findViewById(R.id.second_reg_section);
 
         loginRegBg = (ImageView) findViewById(R.id.image_bg_login_reg);
 
@@ -59,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                regSection();
                 Toast toast = Toast.makeText(getApplicationContext(),"nextClick",Toast.LENGTH_SHORT);
                 toast.show();
             }
@@ -88,6 +90,8 @@ public class LoginActivity extends AppCompatActivity {
         loginRegBg.animate().translationY(1570).setDuration(2200).setStartDelay(200);
         loginComponent.animate().translationY(-270).alpha(0).setDuration(800).setStartDelay(800);
         registerComponent.animate().translationY(-180).alpha(1).setDuration(800).setStartDelay(1300);
+        firstRegSection.animate().translationX(0).setDuration(2200).setStartDelay(200);
+        secondRegSection.animate().translationX(0).setDuration(1000).setStartDelay(100);
 
         handler.postDelayed(new Runnable() {
             @Override
@@ -98,10 +102,11 @@ public class LoginActivity extends AppCompatActivity {
         }, 1300);
     }
 
-    private void regFirstSection() {
+    private void regSection() {
 //        firstRegSection.animate().alpha(0).setDuration(1000).setStartDelay(1000);
 //        oldMemberLayout.animate().alpha(1).setDuration(1000).setStartDelay(1000);
-//        firstRegSection.animate().translationX(150).setDuration(2200).setStartDelay(200);
+        firstRegSection.animate().translationX(-1500).setDuration(2200).setStartDelay(200);
+        secondRegSection.animate().translationX(-840).setDuration(2200).setStartDelay(200);
 //        loginComponent.animate().translationY(-270).alpha(0).setDuration(800).setStartDelay(800);
 //        registerComponent.animate().translationY(-180).alpha(1).setDuration(800).setStartDelay(1300);
         Toast toast = Toast.makeText(getApplicationContext(),"sachinthaa",Toast.LENGTH_LONG);
