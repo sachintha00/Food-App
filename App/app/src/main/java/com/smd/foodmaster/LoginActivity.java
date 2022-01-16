@@ -2,8 +2,11 @@ package com.smd.foodmaster;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.Button;
@@ -12,6 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
+
+    private Handler handler;
 
     ImageView loginRegBg;
     Animation logRegBgAnima;
@@ -23,6 +28,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        handler = new Handler(Looper.getMainLooper());
 
         newMember = (Button)findViewById(R.id.btn_new_member);
         oldMember = (Button)findViewById(R.id.btn_old_member);
@@ -52,16 +59,15 @@ public class LoginActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(),"nextClick",Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getApplicationContext(),"nextClick",Toast.LENGTH_SHORT);
                 toast.show();
             }
         });
         login.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
 //                Intent adminMain = new Intent(getApplicationContext(), AdminMainActivity.class);
 //                startActivity(adminMain);
-                Toast toast = Toast.makeText(getApplicationContext(),"click login",Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getApplicationContext(),"click login",Toast.LENGTH_SHORT);
                 toast.show();
             }
         });
@@ -73,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
         loginRegBg.animate().translationY(-1570).setDuration(2200).setStartDelay(200);
         loginComponent.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(1300);
         registerComponent.animate().translationY(0).alpha(0).setDuration(800).setStartDelay(800);
+        loginComponent.setVisibility(View.VISIBLE);
     }
 
     private void newMember() {
@@ -81,6 +88,14 @@ public class LoginActivity extends AppCompatActivity {
         loginRegBg.animate().translationY(1570).setDuration(2200).setStartDelay(200);
         loginComponent.animate().translationY(-270).alpha(0).setDuration(800).setStartDelay(800);
         registerComponent.animate().translationY(-180).alpha(1).setDuration(800).setStartDelay(1300);
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //Do something after 100ms
+                loginComponent.setVisibility(View.INVISIBLE);
+            }
+        }, 1300);
     }
 
     private void regFirstSection() {
