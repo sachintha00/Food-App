@@ -16,7 +16,7 @@ public class LoginActivity extends AppCompatActivity {
     Animation logRegBgAnima;
     LinearLayout newMemberLayout, loginComponent,oldMemberLayout,registerComponent;
 
-    Button newMember,login, oldMember;
+    Button newMember,login, oldMember, btnNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,8 @@ public class LoginActivity extends AppCompatActivity {
 
         newMember = (Button)findViewById(R.id.btn_new_member);
         oldMember = (Button)findViewById(R.id.btn_old_member);
+        btnNext = (Button)findViewById(R.id.btn_next);
+        
         newMemberLayout = (LinearLayout)findViewById(R.id.layout_new_member);
         oldMemberLayout = (LinearLayout)findViewById(R.id.layout_old_member);
         loginComponent = (LinearLayout)findViewById(R.id.login_component);
@@ -42,6 +44,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 oldMember();
+            }
+        });
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                regFirstSection();
             }
         });
 //        login.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +70,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void newMember() {
+        newMemberLayout.animate().alpha(0).setDuration(1000).setStartDelay(1000);
+        oldMemberLayout.animate().alpha(1).setDuration(1000).setStartDelay(1000);
+        loginRegBg.animate().translationY(1570).setDuration(2200).setStartDelay(200);
+        loginComponent.animate().translationY(-270).alpha(0).setDuration(800).setStartDelay(800);
+        registerComponent.animate().translationY(-180).alpha(1).setDuration(800).setStartDelay(1300);
+    }
+
+    private void regFirstSection() {
         newMemberLayout.animate().alpha(0).setDuration(1000).setStartDelay(1000);
         oldMemberLayout.animate().alpha(1).setDuration(1000).setStartDelay(1000);
         loginRegBg.animate().translationY(1570).setDuration(2200).setStartDelay(200);
