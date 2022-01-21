@@ -131,15 +131,15 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void regSection2() {
         secondRegSection.animate().translationX(-1800).setDuration(1200).setStartDelay(200);
-        thirdRegSection.animate().translationX(-1670).setDuration(2000).setStartDelay(200);
+        thirdRegSection.animate().translationX(-1670).setDuration(1200).setStartDelay(200);
     }
     private void sectionBack1() {
         firstRegSection.animate().translationX(0).setDuration(1200).setStartDelay(200);
         secondRegSection.animate().translationX(0).setDuration(1200).setStartDelay(200);
     }
     private void sectionBack2() {
-        secondRegSection.animate().translationX(100).setDuration(3200).setStartDelay(200);
-//        thirdRegSection.animate().translationX(350).setDuration(1200).setStartDelay(200);
+        secondRegSection.animate().translationX(-840).setDuration(1200).setStartDelay(200);
+        thirdRegSection.animate().translationX(0).setDuration(1200).setStartDelay(200);
     }
 
 }
