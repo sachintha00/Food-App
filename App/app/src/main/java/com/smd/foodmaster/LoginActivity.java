@@ -15,12 +15,15 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+import com.smd.foodmaster.Classes.NIC;
+import com.smd.foodmaster.Database.DBhandler;
 
 public class LoginActivity extends AppCompatActivity {
 
     private Handler handler;
 
-    TextInputEditText fname,lname,nicNo,addrrs,mail,mobile,uname,pw;
+    TextInputLayout fname,lname,nicNo,addrrs,mail,mobile,uname,pw;
 
     ImageView loginRegBg;
     Animation logRegBgAnima;
@@ -35,6 +38,15 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        fname = (TextInputLayout)findViewById(R.id.txt_first_name);
+        lname = (TextInputLayout)findViewById(R.id.txt_last_name);
+        nicNo = (TextInputLayout)findViewById(R.id.txt_nic);
+        addrrs = (TextInputLayout)findViewById(R.id.txt_address);
+        mail = (TextInputLayout)findViewById(R.id.txt_email_address);
+        mobile = (TextInputLayout)findViewById(R.id.txt_mobile);
+        uname = (TextInputLayout)findViewById(R.id.txt_username);
+        pw = (TextInputLayout)findViewById(R.id.txt_password);
 
         handler = new Handler(Looper.getMainLooper());
 
@@ -55,14 +67,6 @@ public class LoginActivity extends AppCompatActivity {
         secondRegSection = (LinearLayout)findViewById(R.id.second_reg_section);
         thirdRegSection = (LinearLayout)findViewById(R.id.third_reg_section);
 
-        fname = (TextInputEditText)findViewById(R.id.txt_first_name);
-        lname = (TextInputEditText)findViewById(R.id.txt_last_name);
-        nicNo = (TextInputEditText)findViewById(R.id.txt_nic);
-        addrrs = (TextInputEditText)findViewById(R.id.txt_address);
-        mail = (TextInputEditText)findViewById(R.id.txt_email_address);
-        mobile = (TextInputEditText)findViewById(R.id.txt_mobile);
-        uname = (TextInputEditText)findViewById(R.id.txt_username);
-        pw = (TextInputEditText)findViewById(R.id.txt_password);
 
         loginRegBg = (ImageView) findViewById(R.id.image_bg_login_reg);
 
@@ -81,12 +85,20 @@ public class LoginActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                firstName = fname.getEditText().getText().toString();
+                lastName = lname.getEditText().getText().toString();
+                nic = nicNo.getEditText().getText().toString();
+                NIC obj = new NIC(nic);
+                gender = obj.GENDER;
                 regSection1();
             }
         });
         btnNext1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                address = addrrs.getEditText().getText().toString();
+                email = mail.getEditText().getText().toString();
+                mobileNumber = mobile.getEditText().getText().toString();
                 regSection2();
             }
         });
@@ -102,12 +114,14 @@ public class LoginActivity extends AppCompatActivity {
                 sectionBack2();
             }
         });
-        login.setOnClickListener(new View.OnClickListener() {
+        btnRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-//                Intent adminMain = new Intent(getApplicationContext(), AdminMainActivity.class);
-//                startActivity(adminMain);
-                Toast toast = Toast.makeText(getApplicationContext(),"click login",Toast.LENGTH_SHORT);
-                toast.show();
+                username = uname.getEditText().getText().toString();
+                password = pw.getEditText().getText().toString();
+                DBhandler dBhandler = new DBhandler(getApplicationContext());
+                long id = dBhandler.addUserDetails(firstName,lastName,address,email,mobileNumber,gender,nic);
+                Toast.makeText(getApplicationContext(), id+" added successfull", Toast.LENGTH_SHORT).show();
+                oldMember();
             }
         });
         login.setOnClickListener(new View.OnClickListener() {
