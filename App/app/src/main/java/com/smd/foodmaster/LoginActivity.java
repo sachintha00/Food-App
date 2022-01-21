@@ -102,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
         registerComponent.animate().translationY(-180).alpha(1).setDuration(800).setStartDelay(1300);
         firstRegSection.animate().translationX(0).setDuration(2200).setStartDelay(200);
         secondRegSection.animate().translationX(0).setDuration(1000).setStartDelay(100);
-//        thirdRegSection.animate().translationX(0).setDuration(1000).setStartDelay(50);
+//        thirdRegSection.animate().translationX(0).setDuration(1000).setStartDelay(100);
 
         handler.postDelayed(new Runnable() {
             @Override
@@ -114,21 +114,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void regSection1() {
-//        firstRegSection.animate().alpha(0).setDuration(1000).setStartDelay(1000);
-//        oldMemberLayout.animate().alpha(1).setDuration(1000).setStartDelay(1000);
         firstRegSection.animate().translationX(-1500).setDuration(2200).setStartDelay(200);
         secondRegSection.animate().translationX(-840).setDuration(2200).setStartDelay(200);
-//        loginComponent.animate().translationY(-270).alpha(0).setDuration(800).setStartDelay(800);
-//        registerComponent.animate().translationY(-180).alpha(1).setDuration(800).setStartDelay(1300);
     }
     private void regSection2() {
-//        firstRegSection.animate().alpha(0).setDuration(1000).setStartDelay(1000);
-//        oldMemberLayout.animate().alpha(1).setDuration(1000).setStartDelay(1000);
         secondRegSection.animate().translationX(-1800).setDuration(2200).setStartDelay(200);
-        thirdRegSection.animate().translationX(-1740).setDuration(2200).setStartDelay(200);
-//        loginComponent.animate().translationY(-270).alpha(0).setDuration(800).setStartDelay(800);
-//        registerComponent.animate().translationY(-180).alpha(1).setDuration(800).setStartDelay(1300);
-        Toast toast = Toast.makeText(getApplicationContext(),"sachinthaa",Toast.LENGTH_LONG);
-        toast.show();
+        thirdRegSection.animate().translationX(-1670).setDuration(2200).setStartDelay(200);
     }
+
 }
