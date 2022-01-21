@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     Animation logRegBgAnima;
     LinearLayout newMemberLayout, loginComponent,oldMemberLayout,registerComponent,firstRegSection,secondRegSection;
 
-    Button newMember,login, oldMember, btnNext;
+    Button newMember,login, oldMember, btnNext,btnNext1,btnBack1,btnBack2,btnRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,10 @@ public class LoginActivity extends AppCompatActivity {
         newMember = (Button)findViewById(R.id.btn_new_member);
         oldMember = (Button)findViewById(R.id.btn_old_member);
         btnNext = (Button)findViewById(R.id.btn_next);
+        btnNext1 = (Button)findViewById(R.id.btn_next1);
+        btnBack1 = (Button)findViewById(R.id.btn_back1);
+        btnBack2 = (Button)findViewById(R.id.btn_back2);
+        btnRegister = (Button)findViewById(R.id.btn_register);
         login = (Button)findViewById(R.id.login);
 
         newMemberLayout = (LinearLayout)findViewById(R.id.layout_new_member);
