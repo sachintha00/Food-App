@@ -75,6 +75,18 @@ public class LoginActivity extends AppCompatActivity {
                 regSection2();
             }
         });
+        btnBack1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sectionBack1();
+            }
+        });
+        btnBack2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sectionBack2();
+            }
+        });
         login.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 //                Intent adminMain = new Intent(getApplicationContext(), AdminMainActivity.class);
@@ -102,7 +114,7 @@ public class LoginActivity extends AppCompatActivity {
         registerComponent.animate().translationY(-180).alpha(1).setDuration(800).setStartDelay(1300);
         firstRegSection.animate().translationX(0).setDuration(2200).setStartDelay(200);
         secondRegSection.animate().translationX(0).setDuration(1000).setStartDelay(100);
-//        thirdRegSection.animate().translationX(0).setDuration(1000).setStartDelay(100);
+        thirdRegSection.animate().translationX(0).setDuration(1000).setStartDelay(100);
 
         handler.postDelayed(new Runnable() {
             @Override
@@ -114,12 +126,20 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void regSection1() {
-        firstRegSection.animate().translationX(-1500).setDuration(2200).setStartDelay(200);
-        secondRegSection.animate().translationX(-840).setDuration(2200).setStartDelay(200);
+        firstRegSection.animate().translationX(-1500).setDuration(1200).setStartDelay(200);
+        secondRegSection.animate().translationX(-840).setDuration(1200).setStartDelay(200);
     }
     private void regSection2() {
-        secondRegSection.animate().translationX(-1800).setDuration(2200).setStartDelay(200);
-        thirdRegSection.animate().translationX(-1670).setDuration(2200).setStartDelay(200);
+        secondRegSection.animate().translationX(-1800).setDuration(1200).setStartDelay(200);
+        thirdRegSection.animate().translationX(-1670).setDuration(2000).setStartDelay(200);
+    }
+    private void sectionBack1() {
+        firstRegSection.animate().translationX(0).setDuration(1200).setStartDelay(200);
+        secondRegSection.animate().translationX(0).setDuration(1200).setStartDelay(200);
+    }
+    private void sectionBack2() {
+        secondRegSection.animate().translationX(100).setDuration(3200).setStartDelay(200);
+//        thirdRegSection.animate().translationX(350).setDuration(1200).setStartDelay(200);
     }
 
 }
