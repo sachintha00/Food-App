@@ -14,9 +14,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 public class LoginActivity extends AppCompatActivity {
 
     private Handler handler;
+
+    TextInputEditText fname,lname,nicNo,addrrs,mail,mobile,uname,pw;
 
     ImageView loginRegBg;
     Animation logRegBgAnima;
@@ -24,6 +28,8 @@ public class LoginActivity extends AppCompatActivity {
             firstRegSection,secondRegSection,thirdRegSection;
 
     Button newMember,login, oldMember, btnNext,btnNext1,btnBack1,btnBack2,btnRegister;
+
+    String firstName,lastName,nic,gender,address,email,mobileNumber,username,password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +54,15 @@ public class LoginActivity extends AppCompatActivity {
         firstRegSection = (LinearLayout)findViewById(R.id.first_reg_section);
         secondRegSection = (LinearLayout)findViewById(R.id.second_reg_section);
         thirdRegSection = (LinearLayout)findViewById(R.id.third_reg_section);
+
+        fname = (TextInputEditText)findViewById(R.id.txt_first_name);
+        lname = (TextInputEditText)findViewById(R.id.txt_last_name);
+        nicNo = (TextInputEditText)findViewById(R.id.txt_nic);
+        addrrs = (TextInputEditText)findViewById(R.id.txt_address);
+        mail = (TextInputEditText)findViewById(R.id.txt_email_address);
+        mobile = (TextInputEditText)findViewById(R.id.txt_mobile);
+        uname = (TextInputEditText)findViewById(R.id.txt_username);
+        pw = (TextInputEditText)findViewById(R.id.txt_password);
 
         loginRegBg = (ImageView) findViewById(R.id.image_bg_login_reg);
 
@@ -85,6 +100,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sectionBack2();
+            }
+        });
+        login.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+//                Intent adminMain = new Intent(getApplicationContext(), AdminMainActivity.class);
+//                startActivity(adminMain);
+                Toast toast = Toast.makeText(getApplicationContext(),"click login",Toast.LENGTH_SHORT);
+                toast.show();
             }
         });
         login.setOnClickListener(new View.OnClickListener() {
