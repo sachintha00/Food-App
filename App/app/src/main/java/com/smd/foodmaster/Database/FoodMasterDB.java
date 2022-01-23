@@ -22,6 +22,7 @@ public final class FoodMasterDB {
 
     public static class LoginAuhten implements BaseColumns {
         public static final String TABLE_NAME = "LoginAuthentication";
+        public static final String COLUMN_ROLLID = "RollId";
         public static final String COLUMN_ROLLNAME = "RollName";
         public static final String COLUMN_USERNAME = "Username";
         public static final String COLUMN_PASSWORD = "Password";

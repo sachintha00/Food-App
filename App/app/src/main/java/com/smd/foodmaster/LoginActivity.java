@@ -120,7 +120,7 @@ public class LoginActivity extends AppCompatActivity {
                 password = pw.getEditText().getText().toString();
                 DBhandler dBhandler = new DBhandler(getApplicationContext());
                 long id = dBhandler.addUserDetails("USER",firstName,lastName,address,email,mobileNumber,gender,nic);
-                long authId = dBhandler.addLoginAuthen("USER",username,password);
+                long authId = dBhandler.addLoginAuthen(Long.toString(id),"USER",username,password);
                 Toast.makeText(getApplicationContext(), id+" added successfull", Toast.LENGTH_SHORT).show();
                 oldMember();
             }

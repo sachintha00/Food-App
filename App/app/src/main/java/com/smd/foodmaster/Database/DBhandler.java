@@ -2,6 +2,7 @@ package com.smd.foodmaster.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
@@ -65,12 +66,13 @@ public class DBhandler extends SQLiteOpenHelper {
         return newRowId;
     }
 
-    public long addLoginAuthen(String rollName, String username, String password){
+    public long addLoginAuthen(String rollId, String rollName, String username, String password){
         // Gets the data repository in write mode
         SQLiteDatabase db = getWritableDatabase();
 
         // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
+        values.put(FoodMasterDB.LoginAuhten.COLUMN_ROLLID, rollId);
         values.put(FoodMasterDB.LoginAuhten.COLUMN_ROLLNAME, rollName);
         values.put(FoodMasterDB.LoginAuhten.COLUMN_USERNAME, username);
         values.put(FoodMasterDB.LoginAuhten.COLUMN_PASSWORD, password);
@@ -79,7 +81,7 @@ public class DBhandler extends SQLiteOpenHelper {
         return db.insert(FoodMasterDB.LoginAuhten.TABLE_NAME, null, values);
     }
 
-    public List readInfo(String username, String password){
+    public List readInfo(){
         SQLiteDatabase dbObj = getReadableDatabase();
 
         String[] projection = {
@@ -93,8 +95,39 @@ public class DBhandler extends SQLiteOpenHelper {
                 FoodMasterDB.Users.COLUMN_USER_MOBILE,
         };
 
-//        String selection = FoodMasterDB.LoginAuhten
+        // Filter results WHERE "title" = 'My Title'
+//        String selection = FoodMasterDB.Users. + " = ?";
+//        String[] selectionArgs = { "My Title" };
 
         return null;
+    }
+
+    public String readInfo(String username, String password){
+        SQLiteDatabase dbObj = getReadableDatabase();
+
+        String[] projection = {
+                BaseColumns._ID,
+                FoodMasterDB.LoginAuhten.COLUMN_ROLLID,
+                FoodMasterDB.LoginAuhten.COLUMN_ROLLNAME,
+                FoodMasterDB.LoginAuhten.COLUMN_USERNAME,
+                FoodMasterDB.LoginAuhten.COLUMN_PASSWORD
+        };
+
+        // Filter results WHERE "title" = 'My Title'
+        String selection = FoodMasterDB.LoginAuhten.COLUMN_USERNAME + " = ? AND"
+                + FoodMasterDB.LoginAuhten.COLUMN_PASSWORD + " = ?";
+        String[] selectionArgs = { username, password};
+
+        Cursor cursor = dbObj.query(
+                FoodMasterDB.LoginAuhten.TABLE_NAME,   // The table to query
+                projection,             // The array of columns to return (pass null to get all)
+                selection,              // The columns for the WHERE clause
+                selectionArgs,          // The values for the WHERE clause
+                null,                   // don't group the rows
+                null,                   // don't filter by row groups
+                null               // The sort order
+        );
+        
+        return cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.LoginAuhten.COLUMN_ROLLID));
     }
 }
