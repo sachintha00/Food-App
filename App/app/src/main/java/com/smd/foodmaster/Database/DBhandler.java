@@ -102,7 +102,7 @@ public class DBhandler extends SQLiteOpenHelper {
         return null;
     }
 
-    public String readInfo(String username, String password){
+    public String readLogin(String username, String password){
         SQLiteDatabase dbObj = getReadableDatabase();
 
         String[] projection = {
@@ -127,7 +127,7 @@ public class DBhandler extends SQLiteOpenHelper {
                 null,                   // don't filter by row groups
                 null               // The sort order
         );
-        
+
         return cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.LoginAuhten.COLUMN_ROLLID));
     }
 }
