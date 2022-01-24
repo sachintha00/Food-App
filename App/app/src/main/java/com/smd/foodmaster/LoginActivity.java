@@ -122,9 +122,9 @@ public class LoginActivity extends AppCompatActivity {
                 username = uname.getEditText().getText().toString();
                 password = pw.getEditText().getText().toString();
                 DBhandler dBhandler = new DBhandler(getApplicationContext());
-                long id = dBhandler.addUserDetails("USER",firstName,lastName,address,email,mobileNumber,gender,nic);
-                long authId = dBhandler.addLoginAuthen("1","USER",username,password);
-                Toast.makeText(getApplicationContext(), id+" added successfull "+authId, Toast.LENGTH_SHORT).show();
+                long id = dBhandler.addUserDetails("USER","firstName","lastName","address","email","mobileNumber","gender","nic");
+//                long authId = dBhandler.addLoginAuthen("1","USER",username,password);
+                Toast.makeText(getApplicationContext(), id+" added successfull ", Toast.LENGTH_SHORT).show();
                 oldMember();
             }
         });
@@ -132,18 +132,18 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 //                Intent adminMain = new Intent(getApplicationContext(), AdminMainActivity.class);
 //                startActivity(adminMain);
-                String username = loginUsername.getEditText().getText().toString();
-                String password = loginPassword.getEditText().getText().toString();
-
-                DBhandler dBhandler = new DBhandler(getApplicationContext());
-                String returnUsername = dBhandler.readLogin(username,password);
-                if(returnUsername != null){
-                    Toast toast = Toast.makeText(getApplicationContext(),"login success "+returnUsername,Toast.LENGTH_SHORT);
-                    toast.show();
-                }
-                else{
-                    Toast.makeText(getApplicationContext(), "login fail", Toast.LENGTH_SHORT).show();
-                }
+//                String username = loginUsername.getEditText().getText().toString();
+//                String password = loginPassword.getEditText().getText().toString();
+//
+//                DBhandler dBhandler = new DBhandler(getApplicationContext());
+//                String returnUsername = dBhandler.readLogin(username,password);
+//                if(returnUsername != null){
+//                    Toast toast = Toast.makeText(getApplicationContext(),"login success "+returnUsername,Toast.LENGTH_SHORT);
+//                    toast.show();
+//                }
+//                else{
+//                    Toast.makeText(getApplicationContext(), "login fail", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
     }
