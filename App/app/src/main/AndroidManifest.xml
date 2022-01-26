@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodMaster">
         <activity
+            android:name=".userMainActivity"
+            android:exported="true"
+            android:label="@string/title_activity_user_main"
+            android:theme="@style/Theme.FoodMaster.NoActionBar" />
+        <activity
             android:name=".LoginActivity"
             android:exported="true" />
         <activity
