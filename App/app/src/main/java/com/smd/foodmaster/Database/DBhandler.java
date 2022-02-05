@@ -92,23 +92,28 @@ public class DBhandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-        public String readLogin(String username, String password){
+    public String readLogin(String username, String password) {
             SQLiteDatabase db = this.getReadableDatabase();
 
             // on below line we are creating a cursor with query to read data from database.
-            Cursor cursorCourses = db.rawQuery("SELECT * FROM " + FoodMasterDB.Users.TABLE_NAME + " WHERE " + FoodMasterDB.Users.COLUMN_USERNAME + " = " + username + " AND " + FoodMasterDB.Users.COLUMN_PASSWORD + " = " + password, null);
+            Cursor cursorCourses = db.rawQuery("SELECT * FROM "+FoodMasterDB.Users.TABLE_NAME+" WHERE "+FoodMasterDB.Users.COLUMN_USERNAME +" ='"+username+"' AND "+FoodMasterDB.Users.COLUMN_PASSWORD+" ='"+password+"'", null);
+//        +" WHERE "+FoodMasterDB.Users.COLUMN_USERNAME +" ='"+username+"' AND "+FoodMasterDB.Users.COLUMN_PASSWORD+" ='"+password+"'"
 
             // on below line we are creating a new array list.
-            String uname = cursorCourses.getString(4);
+            String uname= cursorCourses.getString(cursorCourses.getColumnIndexOrThrow("Username"));
 
             // moving our cursor to first position.
 //            if (cursorCourses.moveToFirst()) {
 //                do {
 //                    // on below line we are adding the data from cursor to our array list.
-//                    courseModalArrayList.add(new CourseModal(cursorCourses.getString(1),
-//                            cursorCourses.getString(4),
-//                            cursorCourses.getString(2),
-//                            cursorCourses.getString(3)));
+////                    courseModalArrayList.add(new CourseModal(cursorCourses.getString(1),
+////                            cursorCourses.getString(4),
+////                            cursorCourses.getString(2),
+////                            cursorCourses.getString(3)));
+//                    if(username == cursorCourses.getString(cursorCourses.getColumnIndexOrThrow("Username"))
+//                            && password == cursorCourses.getString(cursorCourses.getColumnIndexOrThrow("Password"))){
+//                        uname = "find it";
+//                    }
 //                } while (cursorCourses.moveToNext());
 //                // moving our cursor to next.
 //            }
