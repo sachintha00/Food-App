@@ -1,5 +1,6 @@
 package com.smd.foodmaster.Database;
 
+//public class DBhandler extends SQLiteOpenHelper
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -8,50 +9,60 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 
-import java.util.List;
-
 public class DBhandler extends SQLiteOpenHelper {
-    // If you change the database schema, you must increment the database version.
-    public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "FoodMasterDataBase.db";
 
+    // creating a constant variables for our database.
+    // below variable is for our database name.
+    private static final String DB_NAME = "userdb";
+
+    // below int is our database version
+    private static final int DB_VERSION = 1;
+
+    // creating a constructor for our database handler.
     public DBhandler(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        super(context, DB_NAME, null, DB_VERSION);
     }
+
+    // below method is for creating a database by running a sqlite query
+    @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(SQL_CREATE_ENTRIES);
-    }
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // This database is only a cache for online data, so its upgrade policy is
-        // to simply to discard the data and start over
-        db.execSQL(SQL_DELETE_ENTRIES);
-        onCreate(db);
-    }
-    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        onUpgrade(db, oldVersion, newVersion);
+        // on below line we are creating
+        // an sqlite query and we are
+        // setting our column names
+        // along with their data types.
+        String query = "CREATE TABLE " + FoodMasterDB.Users.TABLE_NAME + " ("
+                + FoodMasterDB.Users.COLUMN_ROLL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + FoodMasterDB.Users.COLUMN_ROLL_NAME + " TEXT,"
+                + FoodMasterDB.Users.COLUMN_FIRST_NAME + " TEXT,"
+                + FoodMasterDB.Users.COLUMN_LAST_NAME + " TEXT,"
+                + FoodMasterDB.Users.COLUMN_USER_ADDRESS + " TEXT,"
+                + FoodMasterDB.Users.COLUMN_USER_GMAIL + " TEXT,"
+                + FoodMasterDB.Users.COLUMN_USER_MOBILE + " TEXT,"
+                + FoodMasterDB.Users.COLUMN_GENDER + " TEXT,"
+                + FoodMasterDB.Users.COLUMN_NIC + " TEXT, "
+                + FoodMasterDB.Users.COLUMN_USERNAME + " TEXT, "
+                + FoodMasterDB.Users.COLUMN_PASSWORD + " TEXT)";
+
+        // at last we are calling a exec sql
+        // method to execute above sql query
+        db.execSQL(query);
     }
 
-    private static final String SQL_CREATE_ENTRIES =
-            "CREATE TABLE " + FoodMasterDB.Users.TABLE_NAME + " (" +
-                    FoodMasterDB.Users._ID + " INTEGER PRIMARY KEY," +
-                    FoodMasterDB.Users.COLUMN_FIRST_NAME + " TEXT," +
-                    FoodMasterDB.Users.COLUMN_LAST_NAME + " TEXT," +
-                    FoodMasterDB.Users.COLUMN_USER_ADDRESS + " TEXT," +
-                    FoodMasterDB.Users.COLUMN_USER_GMAIL + " TEXT," +
-                    FoodMasterDB.Users.COLUMN_USER_MOBILE + " TEXT," +
-                    FoodMasterDB.Users.COLUMN_GENDER + " TEXT," +
-                    FoodMasterDB.Users.COLUMN_NIC + " TEXT)";
-
-    private static final String SQL_DELETE_ENTRIES =
-            "DROP TABLE IF EXISTS " + FoodMasterDB.Users.TABLE_NAME;
-
+    // this method is use to add new course to our sqlite database.
     public long addUserDetails(String rollName, String firstName, String lastName, String address,
-                               String gmail, String mobile, String gender, String nic) throws SQLException {
-        // Gets the data repository in write mode
-        SQLiteDatabase db = getWritableDatabase();
+                               String gmail, String mobile, String gender, String nic,String username, String password) throws SQLException {
 
-        // Create a new map of values, where column names are the keys
+        // on below line we are creating a variable for
+        // our sqlite database and calling writable method
+        // as we are writing data in our database.
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // on below line we are creating a
+        // variable for content values.
         ContentValues values = new ContentValues();
+
+        // on below line we are passing all values
+        // along with its key and value pair.
         values.put(FoodMasterDB.Users.COLUMN_ROLL_NAME, rollName);
         values.put(FoodMasterDB.Users.COLUMN_FIRST_NAME, firstName);
         values.put(FoodMasterDB.Users.COLUMN_LAST_NAME, lastName);
@@ -60,73 +71,50 @@ public class DBhandler extends SQLiteOpenHelper {
         values.put(FoodMasterDB.Users.COLUMN_USER_MOBILE, mobile);
         values.put(FoodMasterDB.Users.COLUMN_GENDER, gender);
         values.put(FoodMasterDB.Users.COLUMN_NIC, nic);
+        values.put(FoodMasterDB.Users.COLUMN_USERNAME, username);
+        values.put(FoodMasterDB.Users.COLUMN_PASSWORD, password);
 
-        // Insert the new row, returning the primary key value of the new row
-        return db.insert(FoodMasterDB.Users.TABLE_NAME, null, values);
+        // after adding all values we are passing
+        // content values to our table.
+        long id  = db.insert(FoodMasterDB.Users.TABLE_NAME, null, values);
+
+        // at last we are closing our
+        // database after adding database.
+        db.close();
+
+        return id;
     }
 
-//    public long addLoginAuthen(String rollId, String rollName, String username, String password){
-//        // Gets the data repository in write mode
-//        SQLiteDatabase db = getWritableDatabase();
-//
-//        // Create a new map of values, where column names are the keys
-//        ContentValues values = new ContentValues();
-//        values.put(FoodMasterDB.LoginAuhten.COLUMN_ROLLID, rollId);
-//        values.put(FoodMasterDB.LoginAuhten.COLUMN_ROLLNAME, rollName);
-//        values.put(FoodMasterDB.LoginAuhten.COLUMN_USERNAME, username);
-//        values.put(FoodMasterDB.LoginAuhten.COLUMN_PASSWORD, password);
-//
-//        // Insert the new row, returning the primary key value of the new row
-//        return db.insert(FoodMasterDB.LoginAuhten.TABLE_NAME, null, values);
-//    }
-//
-//    public List readInfo(){
-//        SQLiteDatabase dbObj = getReadableDatabase();
-//
-//        String[] projection = {
-//                BaseColumns._ID,
-//                FoodMasterDB.Users.COLUMN_FIRST_NAME,
-//                FoodMasterDB.Users.COLUMN_LAST_NAME,
-//                FoodMasterDB.Users.COLUMN_GENDER,
-//                FoodMasterDB.Users.COLUMN_NIC,
-//                FoodMasterDB.Users.COLUMN_USER_ADDRESS,
-//                FoodMasterDB.Users.COLUMN_USER_GMAIL,
-//                FoodMasterDB.Users.COLUMN_USER_MOBILE,
-//        };
-//
-//        // Filter results WHERE "title" = 'My Title'
-////        String selection = FoodMasterDB.Users. + " = ?";
-////        String[] selectionArgs = { "My Title" };
-//
-//        return null;
-//    }
-//
-//    public String readLogin(String username, String password){
-//        SQLiteDatabase dbObj = getReadableDatabase();
-//
-//        String[] projection = {
-//                BaseColumns._ID,
-//                FoodMasterDB.LoginAuhten.COLUMN_ROLLID,
-//                FoodMasterDB.LoginAuhten.COLUMN_ROLLNAME,
-//                FoodMasterDB.LoginAuhten.COLUMN_USERNAME,
-//                FoodMasterDB.LoginAuhten.COLUMN_PASSWORD
-//        };
-//
-//        // Filter results WHERE "title" = 'My Title'
-//        String selection = FoodMasterDB.LoginAuhten.COLUMN_USERNAME + " = ? AND"
-//                + FoodMasterDB.LoginAuhten.COLUMN_PASSWORD + " = ?";
-//        String[] selectionArgs = { username, password};
-//
-//        Cursor cursor = dbObj.query(
-//                FoodMasterDB.LoginAuhten.TABLE_NAME,   // The table to query
-//                projection,             // The array of columns to return (pass null to get all)
-//                selection,              // The columns for the WHERE clause
-//                selectionArgs,          // The values for the WHERE clause
-//                null,                   // don't group the rows
-//                null,                   // don't filter by row groups
-//                null               // The sort order
-//        );
-//
-//        return cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.LoginAuhten.COLUMN_ROLLID));
-//    }
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // this method is called to check if the table exists already.
+        db.execSQL("DROP TABLE IF EXISTS " + FoodMasterDB.Users.TABLE_NAME);
+        onCreate(db);
+    }
+
+        public String readLogin(String username, String password){
+            SQLiteDatabase db = this.getReadableDatabase();
+
+            // on below line we are creating a cursor with query to read data from database.
+            Cursor cursorCourses = db.rawQuery("SELECT * FROM " + FoodMasterDB.Users.TABLE_NAME + " WHERE " + FoodMasterDB.Users.COLUMN_USERNAME + " = " + username + " AND " + FoodMasterDB.Users.COLUMN_PASSWORD + " = " + password, null);
+
+            // on below line we are creating a new array list.
+            String uname = cursorCourses.getString(4);
+
+            // moving our cursor to first position.
+//            if (cursorCourses.moveToFirst()) {
+//                do {
+//                    // on below line we are adding the data from cursor to our array list.
+//                    courseModalArrayList.add(new CourseModal(cursorCourses.getString(1),
+//                            cursorCourses.getString(4),
+//                            cursorCourses.getString(2),
+//                            cursorCourses.getString(3)));
+//                } while (cursorCourses.moveToNext());
+//                // moving our cursor to next.
+//            }
+            // at last closing our cursor
+            // and returning our array list.
+            cursorCourses.close();
+            return uname;
+    }
 }

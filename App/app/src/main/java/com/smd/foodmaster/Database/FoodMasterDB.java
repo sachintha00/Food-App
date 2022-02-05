@@ -10,6 +10,7 @@ public final class FoodMasterDB {
     /* Inner class that defines the table contents */
     public static class Users implements BaseColumns {
         public static final String TABLE_NAME = "UserDetails";
+        public static final String COLUMN_ROLL_ID = "RollID";
         public static final String COLUMN_ROLL_NAME = "RollName";
         public static final String COLUMN_FIRST_NAME = "FirstName";
         public static final String COLUMN_LAST_NAME = "LastName";
@@ -18,5 +19,7 @@ public final class FoodMasterDB {
         public static final String COLUMN_USER_MOBILE = "MobileNumber";
         public static final String COLUMN_GENDER = "Gender";
         public static final String COLUMN_NIC = "NIC";
+        public static final String COLUMN_USERNAME = "Username";
+        public static final String COLUMN_PASSWORD = "Password";
     }
 }
