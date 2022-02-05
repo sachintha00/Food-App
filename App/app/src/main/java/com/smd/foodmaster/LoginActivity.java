@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -135,8 +136,12 @@ public class LoginActivity extends AppCompatActivity {
                 String password = loginPassword.getEditText().getText().toString();
 
                 DBhandler dBhandler = new DBhandler(getApplicationContext());
-                String returnValue = dBhandler.readLogin(username,password);
-                Toast.makeText(getApplicationContext(), " read value "+returnValue, Toast.LENGTH_SHORT).show();
+                try {
+                    String returnValue = dBhandler.readLogin(username,password);
+                    Toast.makeText(getApplicationContext(), " read value "+returnValue, Toast.LENGTH_SHORT).show();
+                }catch (Exception e){
+                    Toast.makeText(getApplicationContext(), " Error = "+e, Toast.LENGTH_SHORT).show();
+                }
 //                if(returnUsername != null){
 //                    Toast toast = Toast.makeText(getApplicationContext(),"login success "+returnUsername,Toast.LENGTH_SHORT);
 //                    toast.show();

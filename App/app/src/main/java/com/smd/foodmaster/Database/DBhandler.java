@@ -1,6 +1,7 @@
 package com.smd.foodmaster.Database;
 
 //public class DBhandler extends SQLiteOpenHelper
+import android.app.Application;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -8,6 +9,8 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
+import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 public class DBhandler extends SQLiteOpenHelper {
 
@@ -93,33 +96,35 @@ public class DBhandler extends SQLiteOpenHelper {
     }
 
     public String readLogin(String username, String password) {
-            SQLiteDatabase db = this.getReadableDatabase();
+        // array of columns to fetch
+        String[] columns = {
+                FoodMasterDB.Users.COLUMN_ROLL_ID
+        };
+        SQLiteDatabase db = this.getReadableDatabase();
+        // selection criteria
+        String selection = FoodMasterDB.Users.COLUMN_USERNAME + " = ?" + " AND " + FoodMasterDB.Users.COLUMN_PASSWORD + " = ?";
 
-            // on below line we are creating a cursor with query to read data from database.
-            Cursor cursorCourses = db.rawQuery("SELECT * FROM "+FoodMasterDB.Users.TABLE_NAME+" WHERE "+FoodMasterDB.Users.COLUMN_USERNAME +" ='"+username+"' AND "+FoodMasterDB.Users.COLUMN_PASSWORD+" ='"+password+"'", null);
-//        +" WHERE "+FoodMasterDB.Users.COLUMN_USERNAME +" ='"+username+"' AND "+FoodMasterDB.Users.COLUMN_PASSWORD+" ='"+password+"'"
+        // selection arguments
+        String[] selectionArgs = {username, password};
 
-            // on below line we are creating a new array list.
-            String uname= cursorCourses.getString(cursorCourses.getColumnIndexOrThrow("Username"));
+        // query user table with conditions
+        /**
+         * Here query function is used to fetch records from user table this function works like we use sql query.
+         * SQL query equivalent to this query function is
+         * SELECT user_id FROM user WHERE user_email = 'jack@androidtutorialshub.com' AND user_password = 'qwerty';
+         */
+        Cursor cursor = db.query(FoodMasterDB.Users.TABLE_NAME, //Table to query
+                columns,                    //columns to return
+                selection,                  //columns for the WHERE clause
+                selectionArgs,              //The values for the WHERE clause
+                null,                       //group the rows
+                null,                       //filter by row groups
+                null);                      //The sort order
 
-            // moving our cursor to first position.
-//            if (cursorCourses.moveToFirst()) {
-//                do {
-//                    // on below line we are adding the data from cursor to our array list.
-////                    courseModalArrayList.add(new CourseModal(cursorCourses.getString(1),
-////                            cursorCourses.getString(4),
-////                            cursorCourses.getString(2),
-////                            cursorCourses.getString(3)));
-//                    if(username == cursorCourses.getString(cursorCourses.getColumnIndexOrThrow("Username"))
-//                            && password == cursorCourses.getString(cursorCourses.getColumnIndexOrThrow("Password"))){
-//                        uname = "find it";
-//                    }
-//                } while (cursorCourses.moveToNext());
-//                // moving our cursor to next.
-//            }
-            // at last closing our cursor
-            // and returning our array list.
-            cursorCourses.close();
-            return uname;
+        int cursorCount = cursor.getCount();
+        String rollid = cursor.getString(0);
+        cursor.close();
+        db.close();
+        return rollid;
     }
 }
