@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.os.Handler;
@@ -130,25 +131,20 @@ public class LoginActivity extends AppCompatActivity {
         });
         login.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-//                Intent adminMain = new Intent(getApplicationContext(), AdminMainActivity.class);
-//                startActivity(adminMain);
                 String username = loginUsername.getEditText().getText().toString();
                 String password = loginPassword.getEditText().getText().toString();
 
                 DBhandler dBhandler = new DBhandler(getApplicationContext());
                 try {
                     String returnValue = dBhandler.readLogin(username,password);
-                    Toast.makeText(getApplicationContext(), " read value "+returnValue, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(), " read value "+returnValue, Toast.LENGTH_SHORT).show();
+                    if(returnValue!=null){
+                        Intent userMain = new Intent(getApplicationContext(), userMainActivity.class);
+                        startActivity(userMain);
+                    }
                 }catch (Exception e){
                     Toast.makeText(getApplicationContext(), " Error = "+e, Toast.LENGTH_SHORT).show();
                 }
-//                if(returnUsername != null){
-//                    Toast toast = Toast.makeText(getApplicationContext(),"login success "+returnUsername,Toast.LENGTH_SHORT);
-//                    toast.show();
-//                }
-//                else{
-//                    Toast.makeText(getApplicationContext(), "login fail", Toast.LENGTH_SHORT).show();
-//                }
             }
         });
     }

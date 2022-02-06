@@ -95,6 +95,8 @@ public class DBhandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+//    you can using one method of bellow methods for reading one raw using sqlite data base
+
     public String readLogin(String username, String password) {
         // array of columns to fetch
         String[] columns = {
@@ -122,9 +124,31 @@ public class DBhandler extends SQLiteOpenHelper {
                 null);                      //The sort order
 
         int cursorCount = cursor.getCount();
-        String rollid = cursor.getString(0);
+        String val = null;
+        if (cursor.moveToFirst()) {
+            do {
+                val = cursor.getString(cursor.getColumnIndexOrThrow("RollID"));
+            }
+            while (cursor.moveToNext());
+        }
         cursor.close();
         db.close();
-        return rollid;
+        return val;
     }
+
+//    public String readLogin(String username, String password) {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        Cursor res = db.rawQuery("select * from "+FoodMasterDB.Users.TABLE_NAME+" WHERE "+FoodMasterDB.Users.COLUMN_USERNAME +" = '" + username + "'",null);
+//        String val = null;
+//        if (res != null && res.moveToFirst()) {
+//            do {
+//                //Call Your Function
+//                val = res.getString(res.getColumnIndexOrThrow("NIC"));
+//            }
+//            while (res.moveToNext());
+//        }
+//        return val;
+//    }
 }
+
+//one raw data reading methods end line
