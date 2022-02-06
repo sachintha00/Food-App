@@ -21,6 +21,8 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.smd.foodmaster.Classes.NIC;
 import com.smd.foodmaster.Database.DBhandler;
 
+import java.util.Objects;
+
 public class LoginActivity extends AppCompatActivity {
 
     private Handler handler;
@@ -90,9 +92,9 @@ public class LoginActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firstName = fname.getEditText().getText().toString();
-                lastName = lname.getEditText().getText().toString();
-                nic = nicNo.getEditText().getText().toString();
+                firstName = Objects.requireNonNull(fname.getEditText()).getText().toString();
+                lastName = Objects.requireNonNull(lname.getEditText()).getText().toString();
+                nic = Objects.requireNonNull(nicNo.getEditText()).getText().toString();
                 NIC obj = new NIC(nic);
                 gender = obj.GENDER;
                 regSection1();
@@ -101,9 +103,9 @@ public class LoginActivity extends AppCompatActivity {
         btnNext1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                address = addrrs.getEditText().getText().toString();
-                email = mail.getEditText().getText().toString();
-                mobileNumber = mobile.getEditText().getText().toString();
+                address = Objects.requireNonNull(addrrs.getEditText()).getText().toString();
+                email = Objects.requireNonNull(mail.getEditText()).getText().toString();
+                mobileNumber = Objects.requireNonNull(mobile.getEditText()).getText().toString();
                 regSection2();
             }
         });
@@ -121,8 +123,8 @@ public class LoginActivity extends AppCompatActivity {
         });
         btnRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                username = uname.getEditText().getText().toString();
-                password = pw.getEditText().getText().toString();
+                username = Objects.requireNonNull(uname.getEditText()).getText().toString();
+                password = Objects.requireNonNull(pw.getEditText()).getText().toString();
                 DBhandler dBhandler = new DBhandler(getApplicationContext());
                 long id = dBhandler.addUserDetails("USER",firstName,lastName,address,email,mobileNumber,gender,nic,username,password);
                 Toast.makeText(getApplicationContext(), " added successfull "+id, Toast.LENGTH_SHORT).show();
@@ -131,8 +133,8 @@ public class LoginActivity extends AppCompatActivity {
         });
         login.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                String username = loginUsername.getEditText().getText().toString();
-                String password = loginPassword.getEditText().getText().toString();
+                String username = Objects.requireNonNull(loginUsername.getEditText()).getText().toString();
+                String password = Objects.requireNonNull(loginPassword.getEditText()).getText().toString();
 
                 DBhandler dBhandler = new DBhandler(getApplicationContext());
                 try {
