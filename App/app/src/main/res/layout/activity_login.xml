@@ -461,7 +461,9 @@
                         app:boxCornerRadiusTopEnd="25dp"
                         app:boxCornerRadiusTopStart="25dp"
                         app:boxStrokeColor="#FE8728"
-                        app:hintTextColor="#8FA9BA">
+                        app:hintTextColor="#8FA9BA"
+                        app:endIconMode="password_toggle"
+                        app:endIconTint="@color/colorPrimary">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
@@ -485,8 +487,9 @@
                         app:boxCornerRadiusTopEnd="25dp"
                         app:boxCornerRadiusTopStart="25dp"
                         app:boxStrokeColor="#FE8728"
-                        app:endIconTint="@color/colorPrimary"
-                        app:hintTextColor="#8FA9BA">
+                        app:hintTextColor="#8FA9BA"
+                        app:endIconMode="password_toggle"
+                        app:endIconTint="@color/colorPrimary">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
