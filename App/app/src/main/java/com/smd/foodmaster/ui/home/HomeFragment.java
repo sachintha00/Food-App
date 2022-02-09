@@ -14,9 +14,16 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.smd.foodmaster.R;
+import com.smd.foodmaster.adapter.MainRecyclerAdapter;
 import com.smd.foodmaster.databinding.FragmentHomeBinding;
+import com.smd.foodmaster.model.Category;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -26,6 +33,11 @@ public class HomeFragment extends Fragment {
     private EditText editText;
     private Button button;
 
+    View root;
+
+    RecyclerView mainCategoryRecycler;
+    MainRecyclerAdapter mainRecyclerAdapter;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
@@ -33,7 +45,7 @@ public class HomeFragment extends Fragment {
 
 //        binding = FragmentHomeBinding.inflate(inflater, container, false);
 //        View root = binding.getRoot();
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        root = inflater.inflate(R.layout.fragment_home, container, false);
 //        button = (Button) root.findViewById(R.id.home_submit_btn);
 //        editText = (EditText) root.findViewById(R.id.home_edit_text);
 
@@ -44,14 +56,22 @@ public class HomeFragment extends Fragment {
             }
         });
 
-//        final TextView textView = binding.textHome;
-//        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
+        List<Category> categoryList = new ArrayList<>();
+        categoryList.add(new Category("Sachintha"));
+        categoryList.add(new Category("Madhawa"));
+        categoryList.add(new Category("Deniyegedara"));
+        categoryList.add(new Category("Ashani Dilanka"));
+
+        setMainCategoryRecycler(categoryList);
+
         return root;
+    }
+
+    private void setMainCategoryRecycler(List<Category> categoryList){
+        mainCategoryRecycler = (RecyclerView) root.findViewById(R.id.recyclerView_main);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        mainRecyclerAdapter = new MainRecyclerAdapter(getActivity(),categoryList);
+        mainCategoryRecycler.setAdapter(mainRecyclerAdapter);
     }
 
     @Override
