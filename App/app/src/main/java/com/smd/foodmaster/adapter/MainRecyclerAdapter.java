@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,10 +17,11 @@ import java.util.List;
 
 public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapter.MainViewHolder> {
 
-    private Context context;
-    private List<Category> categoryList;
+    Context context;
+    List<Category> categoryList;
 
     public MainRecyclerAdapter(Context context, List<Category> categoryList) {
+        Toast.makeText(context.getApplicationContext(), "main recycler adapter ", Toast.LENGTH_SHORT).show();
         this.context = context;
         this.categoryList = categoryList;
     }
@@ -27,6 +29,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
     @NonNull
     @Override
     public MainViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        Toast.makeText(context.getApplicationContext(), "on create view holder", Toast.LENGTH_SHORT).show();
         return new MainViewHolder(LayoutInflater.from(context).inflate(R.layout.main_recycle_row_item,parent,false));
     }
 

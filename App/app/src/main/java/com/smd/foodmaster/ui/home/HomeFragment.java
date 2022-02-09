@@ -30,9 +30,6 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
 
-    private EditText editText;
-    private Button button;
-
     View root;
 
     RecyclerView mainCategoryRecycler;
@@ -49,30 +46,28 @@ public class HomeFragment extends Fragment {
 //        button = (Button) root.findViewById(R.id.home_submit_btn);
 //        editText = (EditText) root.findViewById(R.id.home_edit_text);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Toast.makeText(getActivity(), editText.getText().toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
+//        Toast.makeText(getActivity(), "editText.getText().toString()", Toast.LENGTH_SHORT).show();
+
 
         List<Category> categoryList = new ArrayList<>();
         categoryList.add(new Category("Sachintha"));
         categoryList.add(new Category("Madhawa"));
         categoryList.add(new Category("Deniyegedara"));
-        categoryList.add(new Category("Ashani Dilanka"));
 
-        setMainCategoryRecycler(categoryList);
-
-        return root;
-    }
-
-    private void setMainCategoryRecycler(List<Category> categoryList){
         mainCategoryRecycler = (RecyclerView) root.findViewById(R.id.recyclerView_main);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mainRecyclerAdapter = new MainRecyclerAdapter(getActivity(),categoryList);
         mainCategoryRecycler.setAdapter(mainRecyclerAdapter);
+
+        return root;
     }
+
+//    private void setMainCategoryRecycler(List<Category> categoryList){
+//        mainCategoryRecycler = (RecyclerView) root.findViewById(R.id.recyclerView_main);
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+//        mainRecyclerAdapter = new MainRecyclerAdapter(getActivity(),categoryList);
+//        mainCategoryRecycler.setAdapter(mainRecyclerAdapter);
+//    }
 
     @Override
     public void onDestroyView() {

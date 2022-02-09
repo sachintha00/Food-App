@@ -10,8 +10,4 @@ public class Category {
     public String getCategoryTitle(){
         return categoryTitle;
     }
-
-    public void setCategoryTitle(String categoryTitle){
-        this.categoryTitle = categoryTitle;
-    }
 }
