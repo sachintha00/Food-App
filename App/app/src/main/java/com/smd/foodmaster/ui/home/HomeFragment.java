@@ -34,13 +34,13 @@ public class HomeFragment extends Fragment {
 //        binding = FragmentHomeBinding.inflate(inflater, container, false);
 //        View root = binding.getRoot();
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        button = (Button) root.findViewById(R.id.home_submit_btn);
-        editText = (EditText) root.findViewById(R.id.home_edit_text);
+//        button = (Button) root.findViewById(R.id.home_submit_btn);
+//        editText = (EditText) root.findViewById(R.id.home_edit_text);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), editText.getText().toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), editText.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
