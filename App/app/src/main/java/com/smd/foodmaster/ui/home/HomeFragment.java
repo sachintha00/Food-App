@@ -55,9 +55,11 @@ public class HomeFragment extends Fragment {
         categoryList.add(new Category("Deniyegedara"));
 
         mainCategoryRecycler = (RecyclerView) root.findViewById(R.id.recyclerView_main);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        mainRecyclerAdapter = new MainRecyclerAdapter(getActivity(),categoryList);
-        mainCategoryRecycler.setAdapter(mainRecyclerAdapter);
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+//        mainRecyclerAdapter = new MainRecyclerAdapter(getActivity(),categoryList);
+//        mainCategoryRecycler.setAdapter(mainRecyclerAdapter);
+        mainCategoryRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mainCategoryRecycler.setAdapter(new MainRecyclerAdapter(getActivity(),categoryList));
 
         return root;
     }
