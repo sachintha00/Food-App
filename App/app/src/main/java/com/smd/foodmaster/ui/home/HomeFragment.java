@@ -24,6 +24,8 @@ public class HomeFragment extends Fragment {
 
     View root;
 
+    RecyclerView recyclerView;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class HomeFragment extends Fragment {
 //        binding = FragmentHomeBinding.inflate(inflater, container, false);
 //        View root = binding.getRoot();
         root = inflater.inflate(R.layout.fragment_home, container, false);
+        recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView_main);
 //        button = (Button) root.findViewById(R.id.home_submit_btn);
 //        editText = (EditText) root.findViewById(R.id.home_edit_text);
 
