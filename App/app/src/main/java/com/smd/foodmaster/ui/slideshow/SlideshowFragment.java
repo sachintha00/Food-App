@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.blogspot.atifsoftwares.circularimageview.CircularImageView;
 import com.smd.foodmaster.R;
 import com.smd.foodmaster.databinding.FragmentSlideshowBinding;
 
@@ -21,6 +22,14 @@ public class SlideshowFragment extends Fragment {
 
     private SlideshowViewModel slideshowViewModel;
     private FragmentSlideshowBinding binding;
+
+    private CircularImageView profileDp;
+
+    private static final int CAMERA_REQUEST_CODE = 100;
+    private static final int STORAGE_REQUEST_CODE = 101;
+
+    private static final int IMAGE_PICK_CAMERA = 102;
+    private static final int IMAGE_PICK_GALLERY = 103;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -30,14 +39,15 @@ public class SlideshowFragment extends Fragment {
         binding = FragmentSlideshowBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 //        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
-//        Button button = (Button) root.findViewById(R.id.);
+        profileDp = (CircularImageView) root.findViewById(R.id.profile_dp);
 
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        profileDp.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
+            public void onClick(View view) {
+
             }
         });
+
         return root;
     }
 

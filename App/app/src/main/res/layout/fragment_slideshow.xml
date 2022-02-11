@@ -17,23 +17,168 @@
         android:layout_marginTop="15dp"
         />
 
-    <TextView
+    <RelativeLayout
         android:id="@+id/personal_detail"
         android:layout_below="@+id/profile_dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Personal Details"
-        android:textColor="#B1B1B1"
-        android:layout_marginTop="50dp"
-        android:layout_marginStart="40dp"
-        android:textSize="20sp"
-        />
-    <View
-        android:layout_below="@id/personal_detail"
+        >
+        <TextView
+            android:id="@+id/topic_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personal Details"
+            android:textColor="#B1B1B1"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="40dp"
+            android:textSize="20sp"
+
+            />
+        <View
+            android:id="@+id/view_01"
+            android:layout_below="@id/topic_1"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="#B1B1B1"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="40dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/privacy_details"
         android:layout_width="wrap_content"
-        android:layout_height="1dp"
-        android:background="#FE8728"
-        android:layout_marginStart="40dp"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/personal_detail"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:id="@+id/option1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:text="Personal Details"
+            android:textColor="#B1B1B1"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/privacy_description"
+            android:layout_below="@+id/option1"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document"
+            android:textColor="#B1B1B1"
+            android:layout_marginTop="6dp"
+            android:layout_marginStart="60dp"
+            android:textSize="13sp"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/authentication_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/privacy_details"
+        android:layout_marginTop="18dp">
+        <TextView
+            android:id="@+id/option2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Authentication"
+            android:textColor="#B1B1B1"
+            android:layout_marginStart="60dp"
+            android:textSize="18sp"
+            />
+        <TextView
+            android:id="@+id/option3"
+            android:layout_below="@+id/option2"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document"
+            android:textColor="#B1B1B1"
+            android:layout_marginTop="6dp"
+            android:layout_marginStart="60dp"
+            android:textSize="13sp"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/shop_details"
+        android:layout_below="@+id/authentication_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:id="@+id/topic_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shop Details"
+            android:textColor="#B1B1B1"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="40dp"
+            android:textSize="20sp"
+
+            />
+        <View
+            android:id="@+id/view_02"
+            android:layout_below="@id/topic_2"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="#B1B1B1"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="40dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/shop_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/shop_details"
+        android:layout_marginTop="30dp">
+        <TextView
+            android:id="@+id/option4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personal Details"
+            android:textColor="#B1B1B1"
+            android:layout_marginStart="60dp"
+            android:textSize="18sp"
+            />
+        <TextView
+            android:layout_below="@+id/option4"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document"
+            android:textColor="#B1B1B1"
+            android:layout_marginTop="6dp"
+            android:layout_marginStart="60dp"
+            android:textSize="13sp"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/shop_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/shop_add"
+        android:layout_marginTop="18dp">
+        <TextView
+            android:id="@+id/option5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Authentication"
+            android:textColor="#B1B1B1"
+            android:layout_marginStart="60dp"
+            android:textSize="18sp"
+            />
+        <TextView
+            android:layout_below="@+id/option5"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document"
+            android:textColor="#B1B1B1"
+            android:layout_marginTop="6dp"
+            android:layout_marginStart="60dp"
+            android:textSize="13sp"
+            />
+    </RelativeLayout>
 
 <!--    <com.google.android.material.textfield.TextInputLayout-->
 <!--        android:id="@+id/first_name"-->
