@@ -12,17 +12,17 @@
         android:src="@drawable/splash_image1"
         android:layout_marginTop="170dp"
         />
+
     <TextView
         android:id="@+id/topic1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="365dp"
+        android:fontFamily="@font/century_gothic"
         android:text="Fresh"
         android:textColor="#FFFFFF"
-        android:textSize="39sp"
-        android:layout_marginTop="365dp"
-        android:layout_marginStart="30dp"
-        android:fontFamily="@font/century_gothic"
-        />
+        android:textSize="39sp" />
     <TextView
         android:id="@+id/topic2"
         android:layout_width="wrap_content"
@@ -34,17 +34,17 @@
         android:layout_marginStart="25dp"
         android:fontFamily="@font/frnak_gothic"
         />
+
     <TextView
         android:id="@+id/descript"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et"
-        android:textColor="#B1B1B1"
-        android:textSize="15sp"
-        android:layout_marginTop="520dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="520dp"
         android:layout_marginEnd="100dp"
         android:fontFamily="@font/century_gothic"
-        />
+        android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et"
+        android:textColor="#B1B1B1"
+        android:textSize="15sp" />
 
 </RelativeLayout>

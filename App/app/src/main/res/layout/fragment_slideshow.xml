@@ -17,121 +17,46 @@
         android:layout_marginTop="15dp"
         />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/first_name"
+    <TextView
+        android:id="@+id/personal_detail"
         android:layout_below="@+id/profile_dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:text="Personal Details"
+        android:textColor="#B1B1B1"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="80dp"
-        android:hint="First Name"
-        android:textColorHint="#FE8728"
-        app:boxCornerRadiusTopStart="25dp"
-        app:boxCornerRadiusBottomEnd="25dp"
-        app:boxCornerRadiusTopEnd="25dp"
-        app:boxCornerRadiusBottomStart="25dp"
-        app:boxStrokeColor="#FE8728"
-        app:hintTextColor="#8FA9BA">
+        android:layout_marginStart="40dp"
+        android:textSize="20sp"
+        />
+    <View
+        android:layout_below="@id/personal_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="#FE8728"
+        android:layout_marginStart="40dp"/>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#8FA9BA" />
-    </com.google.android.material.textfield.TextInputLayout>
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:id="@+id/first_name"-->
+<!--        android:layout_below="@+id/personal_detail"-->
+<!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="60dp"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:layout_marginEnd="60dp"-->
+<!--        android:hint="First Name"-->
+<!--        android:textColorHint="#FE8728"-->
+<!--        app:boxCornerRadiusTopStart="20dp"-->
+<!--        app:boxCornerRadiusBottomEnd="20dp"-->
+<!--        app:boxCornerRadiusTopEnd="20dp"-->
+<!--        app:boxCornerRadiusBottomStart="20dp"-->
+<!--        app:boxStrokeColor="#FE8728"-->
+<!--        app:hintTextColor="#8FA9BA">-->
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/last_name"
-        android:layout_below="@+id/first_name"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="80dp"
-        android:hint="Last Name"
-        android:textColorHint="#FE8728"
-        app:boxCornerRadiusTopStart="25dp"
-        app:boxCornerRadiusBottomEnd="25dp"
-        app:boxCornerRadiusTopEnd="25dp"
-        app:boxCornerRadiusBottomStart="25dp"
-        app:boxStrokeColor="#FE8728"
-        app:hintTextColor="#8FA9BA">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#8FA9BA" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/address"
-        android:layout_below="@+id/last_name"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="80dp"
-        android:hint="Address"
-        android:textColorHint="#FE8728"
-        app:boxCornerRadiusTopStart="25dp"
-        app:boxCornerRadiusBottomEnd="25dp"
-        app:boxCornerRadiusTopEnd="25dp"
-        app:boxCornerRadiusBottomStart="25dp"
-        app:boxStrokeColor="#FE8728"
-        app:hintTextColor="#8FA9BA">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#8FA9BA" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/gmail"
-        android:layout_below="@+id/address"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="80dp"
-        android:hint="Gmail"
-        android:textColorHint="#FE8728"
-        app:boxCornerRadiusTopStart="25dp"
-        app:boxCornerRadiusBottomEnd="25dp"
-        app:boxCornerRadiusTopEnd="25dp"
-        app:boxCornerRadiusBottomStart="25dp"
-        app:boxStrokeColor="#FE8728"
-        app:hintTextColor="#8FA9BA">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#8FA9BA" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/mobile_number"
-        android:layout_below="@+id/gmail"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="80dp"
-        android:hint="Mobile Number"
-        android:textColorHint="#FE8728"
-        app:boxCornerRadiusTopStart="25dp"
-        app:boxCornerRadiusBottomEnd="25dp"
-        app:boxCornerRadiusTopEnd="25dp"
-        app:boxCornerRadiusBottomStart="25dp"
-        app:boxStrokeColor="#FE8728"
-        app:hintTextColor="#8FA9BA">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#8FA9BA" />
-    </com.google.android.material.textfield.TextInputLayout>
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="#8FA9BA" />-->
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
 
 </RelativeLayout>
