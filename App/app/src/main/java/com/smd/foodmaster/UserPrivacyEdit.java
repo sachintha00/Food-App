@@ -1,4 +1,10 @@
-package com.smd.foodmaster.ui.slideshow;
+package com.smd.foodmaster;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.Activity;
@@ -10,34 +16,15 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import com.blogspot.atifsoftwares.circularimageview.CircularImageView;
-import com.smd.foodmaster.R;
-import com.smd.foodmaster.UserPrivacyEdit;
-import com.smd.foodmaster.databinding.FragmentSlideshowBinding;
-import com.smd.foodmaster.userMainActivity;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
-public class SlideshowFragment extends Fragment {
-
-    private SlideshowViewModel slideshowViewModel;
-    private FragmentSlideshowBinding binding;
+public class UserPrivacyEdit extends AppCompatActivity {
 
     private CircularImageView profileDp;
     RelativeLayout privacyEdit;
@@ -48,25 +35,18 @@ public class SlideshowFragment extends Fragment {
     private static final int IMAGE_PICK_CAMERA = 102;
     private static final int IMAGE_PICK_GALLERY = 103;
 
-//    permission array
+    //    permission array
     private String[] cameraPermission; //camera and storage permission
     private String[] storagePermission; //only storage permission
 
     private Uri imageUri;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_user_privacy_edit);
 
-//        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
-//        View root = binding.getRoot();
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
-        profileDp = (CircularImageView) root.findViewById(R.id.profile_dp);
-        privacyEdit = (RelativeLayout) root.findViewById(R.id.privacy_details);
-
-        cameraPermission = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
-        storagePermission = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        profileDp = (CircularImageView) findViewById(R.id.profile_dp);
 
         profileDp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,13 +54,11 @@ public class SlideshowFragment extends Fragment {
                 imagePickDialog();
             }
         });
-
-        return root;
     }
 
     private void imagePickDialog(){
         String[] options = {"Camera","Gallery"};
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Pick a image");
 
         builder.setItems(options, new DialogInterface.OnClickListener() {
@@ -112,7 +90,7 @@ public class SlideshowFragment extends Fragment {
         contentValues.put(MediaStore.Images.Media.TITLE,"Image Title");
         contentValues.put(MediaStore.Images.Media.DESCRIPTION,"Image Description");
 
-        imageUri =  getActivity().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,contentValues);
+        imageUri =  getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,contentValues);
 
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT,imageUri);
@@ -125,34 +103,28 @@ public class SlideshowFragment extends Fragment {
     }
 
     private boolean checkStoragePermission(){
-        boolean result = ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.WRITE_EXTERNAL_STORAGE) == (PackageManager.PERMISSION_GRANTED);
+        boolean result = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == (PackageManager.PERMISSION_GRANTED);
         return result;
     }
 
     private void requestStoragePermission(){
-        ActivityCompat.requestPermissions(getActivity(),storagePermission,STORAGE_REQUEST_CODE);
+        ActivityCompat.requestPermissions(this,storagePermission,STORAGE_REQUEST_CODE);
     }
 
     private boolean checkCameraPermission(){
-        boolean result = ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.CAMERA) == (PackageManager.PERMISSION_GRANTED);
-        boolean result1 = ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.WRITE_EXTERNAL_STORAGE) == (PackageManager.PERMISSION_GRANTED);
+        boolean result = ContextCompat.checkSelfPermission(this,Manifest.permission.CAMERA) == (PackageManager.PERMISSION_GRANTED);
+        boolean result1 = ContextCompat.checkSelfPermission(this,Manifest.permission.WRITE_EXTERNAL_STORAGE) == (PackageManager.PERMISSION_GRANTED);
         return result && result1;
     }
 
     private void requestCameraPermission(){
-        ActivityCompat.requestPermissions(getActivity(),cameraPermission,CAMERA_REQUEST_CODE);
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+        ActivityCompat.requestPermissions(this,cameraPermission,CAMERA_REQUEST_CODE);
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        
+
         switch(requestCode){
             case CAMERA_REQUEST_CODE:{
                 if(grantResults.length>0){
@@ -163,7 +135,7 @@ public class SlideshowFragment extends Fragment {
                         pickFromCamera();
                     }
                     else{
-                        Toast.makeText(getActivity(), "Camera & Storage permission are required", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Camera & Storage permission are required", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -175,7 +147,7 @@ public class SlideshowFragment extends Fragment {
                         pickFromGallery();
                     }
                     else{
-                        Toast.makeText(getActivity(), "Storage permission is required...", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Storage permission is required...", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -190,34 +162,32 @@ public class SlideshowFragment extends Fragment {
 
             if(requestCode == IMAGE_PICK_GALLERY){
 
-                Toast.makeText(getActivity(), "in crop image", Toast.LENGTH_SHORT).show();
-
                 CropImage.activity(data.getData())
-                .setGuidelines(CropImageView.Guidelines.ON)
-                .setAspectRatio(1,1)
-                .start(getActivity());
+                        .setGuidelines(CropImageView.Guidelines.ON_TOUCH)
+                        .setAspectRatio(1,1)
+                        .start(this);
             }
             else if(requestCode == IMAGE_PICK_CAMERA){
 
                 CropImage.activity(imageUri)
                         .setGuidelines(CropImageView.Guidelines.ON)
                         .setAspectRatio(1,1)
-                        .start(getActivity());
-            }
-            else if(requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
-                Toast.makeText(getActivity(), "in crop image", Toast.LENGTH_SHORT).show();
-                CropImage.ActivityResult result = CropImage.getActivityResult(data);
-                if(resultCode == Activity.RESULT_OK){
-                    Toast.makeText(getActivity(), "uri", Toast.LENGTH_SHORT).show();
-                    Uri resultUri = result.getUri();
-                    imageUri = resultUri;
-                    profileDp.setImageURI(resultUri);
-                }
-                else if(resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE){
-                    Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                }
+                        .start(this);
             }
         }
+        else if(requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if(resultCode == Activity.RESULT_OK){
+                Uri resultUri = result.getUri();
+                imageUri = resultUri;
+                profileDp.setImageURI(resultUri);
+            }
+            else if(resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE){
+                Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+
         super.onActivityResult(requestCode, resultCode, data);
     }
 }
