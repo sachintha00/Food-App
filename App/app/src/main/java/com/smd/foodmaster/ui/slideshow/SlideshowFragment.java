@@ -32,13 +32,10 @@ public class SlideshowFragment extends Fragment {
 //        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
 //        Button button = (Button) root.findViewById(R.id.);
 
-        Toast.makeText(getActivity(), "hi", Toast.LENGTH_SHORT).show();
-
-        final TextView textView = binding.textSlideshow;
         slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+//                textView.setText(s);
             }
         });
         return root;
