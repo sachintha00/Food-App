@@ -12,6 +12,9 @@ import android.provider.BaseColumns;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DBhandler extends SQLiteOpenHelper {
 
     // creating a constant variables for our database.
@@ -149,6 +152,56 @@ public class DBhandler extends SQLiteOpenHelper {
 //        }
 //        return val;
 //    }
+
+    public List<String> readUser(String rollId) {
+        // array of columns to fetch
+        String[] columns = {
+                FoodMasterDB.Users.COLUMN_FIRST_NAME,
+                FoodMasterDB.Users.COLUMN_LAST_NAME,
+                FoodMasterDB.Users.COLUMN_USER_ADDRESS,
+                FoodMasterDB.Users.COLUMN_USER_GMAIL,
+                FoodMasterDB.Users.COLUMN_USER_MOBILE,
+                FoodMasterDB.Users.COLUMN_GENDER,
+                FoodMasterDB.Users.COLUMN_NIC,
+                FoodMasterDB.Users.COLUMN_USERNAME,
+                FoodMasterDB.Users.COLUMN_PASSWORD,
+        };
+        SQLiteDatabase db = this.getReadableDatabase();
+        // selection criteria
+        String selection = FoodMasterDB.Users.COLUMN_ROLL_ID + " = ?";
+
+        // selection arguments
+        String[] selectionArgs = {rollId};
+
+
+        Cursor cursor = db.query(FoodMasterDB.Users.TABLE_NAME, //Table to query
+                columns,                    //columns to return
+                selection,                  //columns for the WHERE clause
+                selectionArgs,              //The values for the WHERE clause
+                null,                       //group the rows
+                null,                       //filter by row groups
+                null);                      //The sort order
+
+        int cursorCount = cursor.getCount();
+        List<String> User = new ArrayList<>();
+        if (cursor.moveToFirst()) {
+            do {
+                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_FIRST_NAME)));
+                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_LAST_NAME)));
+                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_USER_ADDRESS)));
+                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_USER_GMAIL)));
+                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_USER_MOBILE)));
+                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_GENDER)));
+                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_NIC)));
+                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_USERNAME)));
+                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_PASSWORD)));
+            }
+            while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return User;
+    }
 }
 
 //one raw data reading methods end line

@@ -1,6 +1,7 @@
 package com.smd.foodmaster.ui.slideshow;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentValues;
@@ -27,12 +28,16 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.blogspot.atifsoftwares.circularimageview.CircularImageView;
+import com.smd.foodmaster.Classes.StringFormatter;
+import com.smd.foodmaster.Database.DBhandler;
 import com.smd.foodmaster.R;
 import com.smd.foodmaster.UserPrivacyEdit;
 import com.smd.foodmaster.databinding.FragmentSlideshowBinding;
 import com.smd.foodmaster.userMainActivity;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
+
+import java.util.List;
 
 public class SlideshowFragment extends Fragment {
 
@@ -55,6 +60,7 @@ public class SlideshowFragment extends Fragment {
 
     private Uri imageUri;
 
+    @SuppressLint("SetTextI18n")
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         slideshowViewModel =
@@ -63,10 +69,17 @@ public class SlideshowFragment extends Fragment {
 //        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
 //        View root = binding.getRoot();
         Toast.makeText(getActivity(), userMainActivity.passRollId, Toast.LENGTH_SHORT).show();
+
+        DBhandler db = new DBhandler(getActivity());
+        List<String> userInfo = db.readUser(userMainActivity.passRollId);
+
         View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
         profileDp = (CircularImageView) root.findViewById(R.id.profile_dp);
         privacyEdit = (RelativeLayout) root.findViewById(R.id.privacy_details);
         name = (TextView) root.findViewById(R.id.name);
+
+//        name.setText(userInfo.get(0)+" "+userInfo.get(1));
+        name.setText(StringFormatter.capitalizeWord(userInfo.get(0))+" "+StringFormatter.capitalizeWord(userInfo.get(1)));
 
         cameraPermission = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermission = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
