@@ -234,6 +234,31 @@ public class DBhandler extends SQLiteOpenHelper {
 
         return false;
     }
+    public boolean updateAuthDetails(String rollId, String username, String password) throws SQLException {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(FoodMasterDB.Users.COLUMN_USERNAME, username);
+        values.put(FoodMasterDB.Users.COLUMN_PASSWORD, password);
+
+        String selection = FoodMasterDB.Users.COLUMN_ROLL_ID + " LIKE ?";
+        String[] selectionArgs = { rollId };
+
+        int count = db.update(
+                FoodMasterDB.Users.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        db.close();
+
+        if(count>0){
+            return true;
+        }
+
+        return false;
+    }
 }
 
 //one raw data reading methods end line

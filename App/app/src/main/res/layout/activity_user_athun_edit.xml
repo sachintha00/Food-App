@@ -55,7 +55,9 @@
             app:boxCornerRadiusTopEnd="25dp"
             app:boxCornerRadiusBottomStart="25dp"
             app:boxStrokeColor="#FE8728"
-            app:hintTextColor="#8FA9BA">
+            app:hintTextColor="#8FA9BA"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/ol_pass_edit"
@@ -83,8 +85,6 @@
                 android:id="@+id/username_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:editable="false"
-                tools:ignore="Deprecated"
                 android:textColor="#8FA9BA" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -109,8 +109,6 @@
             android:id="@+id/new_pass_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:editable="false"
-            tools:ignore="Deprecated"
             android:textColor="#8FA9BA" />
     </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -135,8 +133,6 @@
                 android:id="@+id/com_pass_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:editable="false"
-                tools:ignore="Deprecated"
                 android:textColor="#8FA9BA" />
         </com.google.android.material.textfield.TextInputLayout>
     </RelativeLayout>
@@ -152,6 +148,7 @@
         android:textColor="#FFFF"
         android:textSize="12sp"
         tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="337dp" />
+        tools:layout_editor_absoluteY="337dp"
+        android:enabled="false"/>
 
 </RelativeLayout>
