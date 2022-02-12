@@ -14,7 +14,6 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +23,6 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.blogspot.atifsoftwares.circularimageview.CircularImageView;
@@ -68,7 +66,6 @@ public class SlideshowFragment extends Fragment {
 
 //        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
 //        View root = binding.getRoot();
-        Toast.makeText(getActivity(), userMainActivity.passRollId, Toast.LENGTH_SHORT).show();
 
         DBhandler db = new DBhandler(getActivity());
         List<String> userInfo = db.readUser(userMainActivity.passRollId);
