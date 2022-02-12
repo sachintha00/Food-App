@@ -7,6 +7,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentValues;
@@ -26,16 +27,20 @@ import com.blogspot.atifsoftwares.circularimageview.CircularImageView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.smd.foodmaster.Classes.NIC;
+import com.smd.foodmaster.Database.DBhandler;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
+
+import java.util.List;
 
 public class UserPrivacyEdit extends AppCompatActivity {
 
     private CircularImageView profileDp;
     RelativeLayout privacyEdit;
 
-    TextInputEditText NIC,GENDER;
+    TextInputEditText NIC,GENDER,FIRSTNAME,LASTNAME,ADDRESS,MAIL, MOBILENUMBER;
 
+    @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +48,22 @@ public class UserPrivacyEdit extends AppCompatActivity {
 
         NIC = (TextInputEditText) findViewById(R.id.nic_edit);
         GENDER = (TextInputEditText) findViewById(R.id.gender_edit);
+        FIRSTNAME = (TextInputEditText) findViewById(R.id.firstname_edit);
+        LASTNAME = (TextInputEditText) findViewById(R.id.lastname_edit);
+        ADDRESS = (TextInputEditText) findViewById(R.id.address_edit);
+        MAIL = (TextInputEditText) findViewById(R.id.email_edit);
+        MOBILENUMBER = (TextInputEditText) findViewById(R.id.edit_mobile_number);
+
+        DBhandler db = new DBhandler(getApplicationContext());
+        List<String> userEdit = db.readUser(userMainActivity.passRollId);
+
+        FIRSTNAME.setText(userEdit.get(0));
+        LASTNAME.setText(userEdit.get(1));
+        ADDRESS.setText(userEdit.get(2));
+        MAIL.setText(userEdit.get(3));
+        MOBILENUMBER.setText(userEdit.get(4));
+        GENDER.setText(userEdit.get(5));
+        NIC.setText(userEdit.get(6));
 
         NIC.addTextChangedListener(new TextWatcher() {
             @Override

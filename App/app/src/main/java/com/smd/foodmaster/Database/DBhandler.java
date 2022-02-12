@@ -202,6 +202,37 @@ public class DBhandler extends SQLiteOpenHelper {
         db.close();
         return User;
     }
+
+    public long updateUserDetails(String rollName, String firstName, String lastName, String address,
+                               String gmail, String mobile, String gender, String nic) throws SQLException {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // on below line we are creating a
+        // variable for content values.
+        ContentValues values = new ContentValues();
+
+        // on below line we are passing all values
+        // along with its key and value pair.
+        values.put(FoodMasterDB.Users.COLUMN_ROLL_NAME, rollName);
+        values.put(FoodMasterDB.Users.COLUMN_FIRST_NAME, firstName);
+        values.put(FoodMasterDB.Users.COLUMN_LAST_NAME, lastName);
+        values.put(FoodMasterDB.Users.COLUMN_USER_ADDRESS, address);
+        values.put(FoodMasterDB.Users.COLUMN_USER_GMAIL, gmail);
+        values.put(FoodMasterDB.Users.COLUMN_USER_MOBILE, mobile);
+        values.put(FoodMasterDB.Users.COLUMN_GENDER, gender);
+        values.put(FoodMasterDB.Users.COLUMN_NIC, nic);
+
+        // after adding all values we are passing
+        // content values to our table.
+        long id  = db.update(FoodMasterDB.Users.TABLE_NAME, null, values);
+
+        // at last we are closing our
+        // database after adding database.
+        db.close();
+
+        return id;
+    }
 }
 
 //one raw data reading methods end line
