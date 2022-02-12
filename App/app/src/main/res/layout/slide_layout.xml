@@ -23,17 +23,17 @@
         android:text="Fresh"
         android:textColor="#FFFFFF"
         android:textSize="39sp" />
+
     <TextView
         android:id="@+id/topic2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="415dp"
+        android:fontFamily="@font/frnak_gothic"
         android:text="Everything"
         android:textColor="#FE8728"
-        android:textSize="59sp"
-        android:layout_marginTop="415dp"
-        android:layout_marginStart="25dp"
-        android:fontFamily="@font/frnak_gothic"
-        />
+        android:textSize="59sp" />
 
     <TextView
         android:id="@+id/descript"
