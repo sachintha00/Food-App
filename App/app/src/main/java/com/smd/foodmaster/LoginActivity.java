@@ -127,7 +127,6 @@ public class LoginActivity extends AppCompatActivity {
                 password = Objects.requireNonNull(pw.getEditText()).getText().toString();
                 DBhandler dBhandler = new DBhandler(getApplicationContext());
                 long id = dBhandler.addUserDetails("USER",firstName,lastName,address,email,mobileNumber,gender,nic,username,password);
-                Toast.makeText(getApplicationContext(), " added successfull "+id, Toast.LENGTH_SHORT).show();
                 oldMember();
             }
         });

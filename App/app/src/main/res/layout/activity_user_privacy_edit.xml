@@ -157,6 +157,7 @@
                 app:hintTextColor="#8FA9BA">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nic_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#8FA9BA" />
@@ -179,6 +180,7 @@
                 app:hintTextColor="#8FA9BA">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/gender_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#8FA9BA" />
