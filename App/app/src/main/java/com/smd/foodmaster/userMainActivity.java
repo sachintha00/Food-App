@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Intent;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -20,6 +21,10 @@ import com.smd.foodmaster.databinding.ActivityUserMainBinding;
 
 public class userMainActivity extends AppCompatActivity {
 
+    public static final String ROLLID = null;
+
+    public static String passRollId;
+
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityUserMainBinding binding;
 
@@ -29,6 +34,9 @@ public class userMainActivity extends AppCompatActivity {
 
         binding = ActivityUserMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        Intent intent = getIntent();
+        passRollId = intent.getStringExtra(ROLLID);
 
         setSupportActionBar(binding.appBarUserMain.toolbar);
 

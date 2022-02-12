@@ -41,6 +41,7 @@ public class SlideshowFragment extends Fragment {
 
     private CircularImageView profileDp;
     RelativeLayout privacyEdit;
+    TextView name;
 
     private static final int CAMERA_REQUEST_CODE = 100;
     private static final int STORAGE_REQUEST_CODE = 101;
@@ -61,9 +62,11 @@ public class SlideshowFragment extends Fragment {
 
 //        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
 //        View root = binding.getRoot();
+        Toast.makeText(getActivity(), userMainActivity.passRollId, Toast.LENGTH_SHORT).show();
         View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
         profileDp = (CircularImageView) root.findViewById(R.id.profile_dp);
         privacyEdit = (RelativeLayout) root.findViewById(R.id.privacy_details);
+        name = (TextView) root.findViewById(R.id.name);
 
         cameraPermission = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermission = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};

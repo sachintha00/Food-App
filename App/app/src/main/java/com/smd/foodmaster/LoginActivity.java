@@ -142,6 +142,7 @@ public class LoginActivity extends AppCompatActivity {
 //                    Toast.makeText(getApplicationContext(), " read value "+returnValue, Toast.LENGTH_SHORT).show();
                     if(returnValue!=null){
                         Intent userMain = new Intent(getApplicationContext(), userMainActivity.class);
+                        userMain.putExtra(userMainActivity.ROLLID,returnValue);
                         startActivity(userMain);
                     }
                 }catch (Exception e){
