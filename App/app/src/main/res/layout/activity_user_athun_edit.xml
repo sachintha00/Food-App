@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserAthunEdit"
+    android:background="#18172C">
+
+    <RelativeLayout
+        android:id="@+id/hedding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/topic"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:text="Authentication Details"
+            android:textColor="#FE8728"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="25dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/descript"
+            android:layout_below="@+id/topic"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Authentication Details"
+            android:textColor="#FFFF"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="25dp"
+            android:textSize="15sp"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/edit_section"
+        android:layout_below="@+id/hedding"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/old_password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Old Password"
+            android:textColorHint="#FE8728"
+            app:boxCornerRadiusTopStart="25dp"
+            app:boxCornerRadiusBottomEnd="25dp"
+            app:boxCornerRadiusTopEnd="25dp"
+            app:boxCornerRadiusBottomStart="25dp"
+            app:boxStrokeColor="#FE8728"
+            app:hintTextColor="#8FA9BA">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ol_pass_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#8FA9BA" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/username"
+            android:layout_below="@+id/old_password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:hint="Username"
+            android:textColorHint="#FE8728"
+            app:boxCornerRadiusTopStart="25dp"
+            app:boxCornerRadiusBottomEnd="25dp"
+            app:boxCornerRadiusTopEnd="25dp"
+            app:boxCornerRadiusBottomStart="25dp"
+            app:boxStrokeColor="#FE8728"
+            app:hintTextColor="#8FA9BA">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                tools:ignore="Deprecated"
+                android:textColor="#8FA9BA" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/new_password"
+        android:layout_below="@+id/username"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="New Password"
+        android:textColorHint="#FE8728"
+        app:boxCornerRadiusTopStart="25dp"
+        app:boxCornerRadiusBottomEnd="25dp"
+        app:boxCornerRadiusTopEnd="25dp"
+        app:boxCornerRadiusBottomStart="25dp"
+        app:boxStrokeColor="#FE8728"
+        app:hintTextColor="#8FA9BA"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/new_pass_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            tools:ignore="Deprecated"
+            android:textColor="#8FA9BA" />
+    </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/com_password"
+            android:layout_below="@+id/new_password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Comfirm Password"
+            android:textColorHint="#FE8728"
+            app:boxCornerRadiusTopStart="25dp"
+            app:boxCornerRadiusBottomEnd="25dp"
+            app:boxCornerRadiusTopEnd="25dp"
+            app:boxCornerRadiusBottomStart="25dp"
+            app:boxStrokeColor="#FE8728"
+            app:hintTextColor="#8FA9BA"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/colorPrimary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/com_pass_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                tools:ignore="Deprecated"
+                android:textColor="#8FA9BA" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/edit_section"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="50dp"
+        android:text="SAVE"
+        android:textColor="#FFFF"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="96dp"
+        tools:layout_editor_absoluteY="337dp" />
+
+</RelativeLayout>

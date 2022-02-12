@@ -24,12 +24,14 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.blogspot.atifsoftwares.circularimageview.CircularImageView;
 import com.smd.foodmaster.Classes.StringFormatter;
 import com.smd.foodmaster.Database.DBhandler;
 import com.smd.foodmaster.R;
+import com.smd.foodmaster.UserAthunEdit;
 import com.smd.foodmaster.UserPrivacyEdit;
 import com.smd.foodmaster.databinding.FragmentSlideshowBinding;
 import com.smd.foodmaster.userMainActivity;
@@ -44,7 +46,7 @@ public class SlideshowFragment extends Fragment {
     private FragmentSlideshowBinding binding;
 
     private CircularImageView profileDp;
-    RelativeLayout privacyEdit;
+    RelativeLayout privacyEdit,authenticationEdit;
     TextView name;
 
     private static final int CAMERA_REQUEST_CODE = 100;
@@ -58,6 +60,8 @@ public class SlideshowFragment extends Fragment {
     private String[] storagePermission; //only storage permission
 
     private Uri imageUri;
+
+    Runnable mTicker;
 
     @SuppressLint("SetTextI18n")
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -74,10 +78,22 @@ public class SlideshowFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
         profileDp = (CircularImageView) root.findViewById(R.id.profile_dp);
         privacyEdit = (RelativeLayout) root.findViewById(R.id.privacy_details);
+        authenticationEdit = (RelativeLayout) root.findViewById(R.id.authentication_details);
         name = (TextView) root.findViewById(R.id.name);
 
 //        name.setText(userInfo.get(0)+" "+userInfo.get(1));
-        Handler handler = new Handler();
+//        final Handler mHandler = new Handler();
+//        mTicker = new Runnable() {
+//            @Override
+//            public void run() {
+//
+//                name.setText(StringFormatter.capitalizeWord(userInfo.get(0))+" "+StringFormatter.capitalizeWord(userInfo.get(1)));
+//                mHandler.postDelayed(mTicker, 10);
+//
+//            }
+//        };
+//
+//        mHandler.postDelayed(mTicker, 10);
         name.setText(StringFormatter.capitalizeWord(userInfo.get(0))+" "+StringFormatter.capitalizeWord(userInfo.get(1)));
 
         cameraPermission = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
@@ -94,6 +110,13 @@ public class SlideshowFragment extends Fragment {
             public void onClick(View view) {
                 Intent userPrivacy = new Intent(getActivity(), UserPrivacyEdit.class);
                 startActivity(userPrivacy);
+            }
+        });
+        authenticationEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent userAuth = new Intent(getActivity(), UserAthunEdit.class);
+                startActivity(userAuth);
             }
         });
 

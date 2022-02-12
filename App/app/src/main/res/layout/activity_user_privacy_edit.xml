@@ -49,7 +49,7 @@
                 android:id="@+id/first_name"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="170dp"
-                android:layout_height="60dp"
+                android:layout_height="65dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:hint="First Name"
@@ -72,7 +72,7 @@
                 android:id="@+id/fff"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="170dp"
-                android:layout_height="60dp"
+                android:layout_height="65dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
                 android:hint="Last Name"
@@ -189,6 +189,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:editable="false"
+                    tools:ignore="Deprecated"
                     android:textColor="#8FA9BA" />
             </com.google.android.material.textfield.TextInputLayout>
 

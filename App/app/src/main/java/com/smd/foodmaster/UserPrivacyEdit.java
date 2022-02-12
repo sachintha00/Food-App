@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
@@ -38,9 +39,6 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 import java.util.List;
 
 public class UserPrivacyEdit extends AppCompatActivity {
-
-    private CircularImageView profileDp;
-    RelativeLayout privacyEdit;
 
     TextInputEditText NIC,GENDER,FIRSTNAME,LASTNAME,ADDRESS,MAIL, MOBILENUMBER;
 

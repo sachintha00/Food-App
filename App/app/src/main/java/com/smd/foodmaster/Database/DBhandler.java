@@ -186,15 +186,15 @@ public class DBhandler extends SQLiteOpenHelper {
         List<String> User = new ArrayList<>();
         if (cursor.moveToFirst()) {
             do {
-                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_FIRST_NAME)));
-                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_LAST_NAME)));
-                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_USER_ADDRESS)));
-                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_USER_GMAIL)));
-                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_USER_MOBILE)));
-                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_GENDER)));
-                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_NIC)));
-                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_USERNAME)));
-                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_PASSWORD)));
+                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_FIRST_NAME)));     //0
+                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_LAST_NAME)));      //1
+                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_USER_ADDRESS)));   //2
+                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_USER_GMAIL)));     //3
+                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_USER_MOBILE)));    //4
+                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_GENDER)));         //5
+                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_NIC)));            //6
+                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_USERNAME)));       //7
+                User.add(cursor.getString(cursor.getColumnIndexOrThrow(FoodMasterDB.Users.COLUMN_PASSWORD)));       //8
             }
             while (cursor.moveToNext());
         }
