@@ -74,6 +74,13 @@ public class SlideshowFragment extends Fragment {
                 imagePickDialog();
             }
         });
+        privacyEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent userPrivacy = new Intent(getActivity(), UserPrivacyEdit.class);
+                startActivity(userPrivacy);
+            }
+        });
 
         return root;
     }
