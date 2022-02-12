@@ -203,18 +203,13 @@ public class DBhandler extends SQLiteOpenHelper {
         return User;
     }
 
-    public long updateUserDetails(String rollName, String firstName, String lastName, String address,
+    public boolean updateUserDetails(String rollId, String firstName, String lastName, String address,
                                String gmail, String mobile, String gender, String nic) throws SQLException {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-        // on below line we are creating a
-        // variable for content values.
         ContentValues values = new ContentValues();
 
-        // on below line we are passing all values
-        // along with its key and value pair.
-        values.put(FoodMasterDB.Users.COLUMN_ROLL_NAME, rollName);
         values.put(FoodMasterDB.Users.COLUMN_FIRST_NAME, firstName);
         values.put(FoodMasterDB.Users.COLUMN_LAST_NAME, lastName);
         values.put(FoodMasterDB.Users.COLUMN_USER_ADDRESS, address);
@@ -223,15 +218,21 @@ public class DBhandler extends SQLiteOpenHelper {
         values.put(FoodMasterDB.Users.COLUMN_GENDER, gender);
         values.put(FoodMasterDB.Users.COLUMN_NIC, nic);
 
-        // after adding all values we are passing
-        // content values to our table.
-        long id  = db.update(FoodMasterDB.Users.TABLE_NAME, null, values);
+        String selection = FoodMasterDB.Users.COLUMN_ROLL_ID + " LIKE ?";
+        String[] selectionArgs = { rollId };
 
-        // at last we are closing our
-        // database after adding database.
+        int count = db.update(
+                FoodMasterDB.Users.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
         db.close();
 
-        return id;
+        if(count>0){
+            return true;
+        }
+
+        return false;
     }
 }
 

@@ -5,6 +5,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -20,6 +22,7 @@ import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -28,6 +31,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.smd.foodmaster.Classes.NIC;
 import com.smd.foodmaster.Database.DBhandler;
+import com.smd.foodmaster.ui.slideshow.SlideshowFragment;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -39,6 +43,8 @@ public class UserPrivacyEdit extends AppCompatActivity {
     RelativeLayout privacyEdit;
 
     TextInputEditText NIC,GENDER,FIRSTNAME,LASTNAME,ADDRESS,MAIL, MOBILENUMBER;
+
+    Button SAVEBUTTON;
 
     @SuppressLint("CutPasteId")
     @Override
@@ -53,6 +59,8 @@ public class UserPrivacyEdit extends AppCompatActivity {
         ADDRESS = (TextInputEditText) findViewById(R.id.address_edit);
         MAIL = (TextInputEditText) findViewById(R.id.email_edit);
         MOBILENUMBER = (TextInputEditText) findViewById(R.id.edit_mobile_number);
+
+        SAVEBUTTON = (Button)findViewById(R.id.btn_save);
 
         DBhandler db = new DBhandler(getApplicationContext());
         List<String> userEdit = db.readUser(userMainActivity.passRollId);
@@ -80,6 +88,20 @@ public class UserPrivacyEdit extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
 
+            }
+        });
+
+        SAVEBUTTON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (db.updateUserDetails(userMainActivity.passRollId,FIRSTNAME.getText().toString(),LASTNAME.getText().toString(),
+                        ADDRESS.getText().toString(),MAIL.getText().toString(),MOBILENUMBER.getText().toString(),GENDER.getText().toString(),
+                        NIC.getText().toString())){
+                    Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

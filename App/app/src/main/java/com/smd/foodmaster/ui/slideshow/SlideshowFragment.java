@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -76,6 +77,7 @@ public class SlideshowFragment extends Fragment {
         name = (TextView) root.findViewById(R.id.name);
 
 //        name.setText(userInfo.get(0)+" "+userInfo.get(1));
+        Handler handler = new Handler();
         name.setText(StringFormatter.capitalizeWord(userInfo.get(0))+" "+StringFormatter.capitalizeWord(userInfo.get(1)));
 
         cameraPermission = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
